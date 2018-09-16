@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络攻防课程,考试," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="（一直蒟蒻的小萌新 ╮(╯▽╰)╭） 1.什么是端口扫描？ 端口扫描是指某些别有用心的人发送一组端口扫描消息，试图以此侵入某台计算机，并了解其提供的计算机网络服务类型（这些网络服务均与端口号相关）。就是用端口扫描软件（superscan等）扫描远程计算机开放了哪些端口，一般一个端口对应一种服务。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包">
+<meta name="keywords" content="网络攻防课程,考试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络攻防期末考（理论）">
+<meta property="og:url" content="http://yoursite.com/2018/07/04/2018-07-04-网络攻防期末考(理论)/index.html">
+<meta property="og:site_name" content="ch3nie&#39;s blog">
+<meta property="og:description" content="（一直蒟蒻的小萌新 ╮(╯▽╰)╭） 1.什么是端口扫描？ 端口扫描是指某些别有用心的人发送一组端口扫描消息，试图以此侵入某台计算机，并了解其提供的计算机网络服务类型（这些网络服务均与端口号相关）。就是用端口扫描软件（superscan等）扫描远程计算机开放了哪些端口，一般一个端口对应一种服务。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-16T14:52:03.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络攻防期末考（理论）">
+<meta name="twitter:description" content="（一直蒟蒻的小萌新 ╮(╯▽╰)╭） 1.什么是端口扫描？ 端口扫描是指某些别有用心的人发送一组端口扫描消息，试图以此侵入某台计算机，并了解其提供的计算机网络服务类型（这些网络服务均与端口号相关）。就是用端口扫描软件（superscan等）扫描远程计算机开放了哪些端口，一般一个端口对应一种服务。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/04/2018-07-04-网络攻防期末考(理论)/"/>
+
+
+
+
+
+  <title>网络攻防期末考（理论） | ch3nie's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://ch3nie.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ch3nie's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/2018-07-04-网络攻防期末考(理论)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="句末">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch3nie's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网络攻防期末考（理论）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-04T23:52:29+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学校/" itemprop="url" rel="index">
+                    <span itemprop="name">学校</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>（一直蒟蒻的小萌新 ╮(╯▽╰)╭）</p>
+<p><strong>1.什么是端口扫描？</strong></p>
+<p>端口扫描是指某些别有用心的人发送一组端口扫描消息，试图以此侵入某台计算机，并了解其提供的计算机网络服务类型（这些网络服务均与<a href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3%E5%8F%B7" target="_blank" rel="noopener">端口号</a>相关）。就是用端口扫描软件（superscan等）扫描远程计算机开放了哪些端口，一般一个端口对应一种服务。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包括向每个端口发送消息，一次只发送一个消息。接收到的回应类型表示是否在使用该端口并且可由此探寻弱点。</p>
+<p>网络访问主要是通过TCP（传输控制协议）和UDP（用户数据报协议）这两个TCP/IP协议族的协议完成的。而网络服务器上运行的众多网络服务（Services）也是通过TCP端口（port）号和UDP端口号（16位的正整数）来识别的，比如FTP（文件传输协议）服务器的TCP端口号是21、Telnet（远程登陆协议）服务器的TCP端口号是23、DNS（域名解析服务）的UDP端口号是14。部分主要服务同时支持TCP和UDP服务。为了方便记忆，这些协议的TCP端口号和UDP端口号也被定为相同的号码。功能多的端口扫描软件同时具备这两方面的扫描功能。端口扫描技术是一项自动探测本地和远程系统端口开放情况的策略及方法，它使系统用户了解系统目前向外界提供了哪些服务，从而为系统用户管理网络提供了一种手段。</p>
+<p><strong>2.什么是字典攻击？</strong></p>
+<p>字典式攻击，又名词典式攻击，是一种破解密码的方法。是指在破解密码或密钥时，逐一偿试用户自定义词典中的单词或短语的攻击方式。与暴力破解的区别是，暴力破解会逐一尝试所有可能的组合密码，而字典式攻击会使用一个预先定义好的单词列表（可能的密码）。</p>
+<p>实施一次字典攻击需要具备两个要素 。</p>
+<p>要素一是黑客了解认证方式（包括认证协议以及地址、端口等信息），如同小偷需要知道库房在哪儿，房门挂着的是大铜锁还是密码锁，甚至虹膜、指纹识别？拿着一串金属钥匙想打开生指纹识别锁显然不现实。<br> 要素二是黑客拥有比较全面的口令集，包含着各类常见的弱口令，或者目标系统经常出现的组合口令，或者目标系统曾经泄露的口令集。这样才有更多的尝试机会。通常一次字典攻击的实施还是很耗费时间的，特别是目标系统的口令不那么常见。</p>
+<p><strong>3. 信息安全的基本属性主要表现在哪几个方面?</strong></p>
+<p>1、保密性，保证信息为授权者享用而不泄漏给未经授权者。</p>
+<p>2、完整性，保证信息从真实的发信者传送到真实的收信者手中，传送过程中没有被非法用户添加、删除、替换等。</p>
+<p>3、可用性，保证信息和信息系统随时为授权者提供服务，保证合法用户对信息和资源的使用不会被不合理的拒绝。<br>4、可控性，出于国家和机构的利益和社会管理的需要，保证管理者能够对信息实施必要的控制管理，以对抗社会犯罪和外敌侵犯。<br>5、不可否认性，人们要为自己的信息行为负责，提供保证社会依法管理需要的公证、仲裁信息证据。</p>
+<p><strong>4.简述跨站脚本漏洞攻击的原理</strong></p>
+<p>XSS又叫CSS (Cross Site Script) ，跨站脚本攻击。它指的是恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意攻击用户的特殊目的。利用网站对用户的输入缺少充分的有效性检验和敏感词过滤的漏洞,输入攻击脚本,对浏览该网站的客户端实施攻击。论坛、留言板较容易导致XSS攻击。</p>
+<p>原理：1、攻击者对页面进行xss攻击</p>
+<p>2、受害者浏览网页</p>
+<p>3、恶意代码被执行</p>
+<p>4、受害者浏览攻击者恶意网页</p>
+<p>5、攻击者发出恶意信息</p>
+<p>6、受害者发送敏感信息</p>
+<p><strong>5.简述暴力攻击的原理</strong></p>
+<p>暴力攻击是一种使用穷举法破译密码等信息的方法。 黑客使用枚举的方法，使用运算能力较强的计算机，尝试每种可能的字符破解密码，这些字符包括大小写、数字和通配符等。</p>
+<p>字典文件为暴力破解提供了一条捷径程序首先通过扫描得到系统的用户,然后利用字典中每一个密码来登录系统, 看是否成功,如果成功则显示密码。</p>
+<p><strong>6.简述社会工程学攻击的原理</strong></p>
+<p>社会工程是使用计谋和假情报去获得密码和其他敏感信息的科学。研究-一个站点的策略就是尽可能多地了解这个组织的个体，因此黑客不断试图寻找更加精妙的方法从他们希望渗透的组织那里获得信息。<br> 另一种社会工程的形式是黑客试图通过混淆-一个计算机系统去模拟一个合法用。</p>
+<p><strong>7.简述端口扫描技术的原理</strong></p>
+<p>端口扫描向目标主机的TCP/IP服务端口发送探测数据包，并记录目标主机的响应。通过分析响应来判断服务端口是打开还是关闭，就可以得知端口提供的服务或信息。端口扫描也可以通过捕获本地主机或服务器的流入流出IP数据包来监视本地</p>
+<p>主机的运行情况，它仅能对接收到的数据进行分析，帮助我们发现目标主机的某些内在的弱点，而不会提供进入一个系统的详细步骤。</p>
+<p><strong>8.简单描述SQL注入攻击</strong></p>
+<p>SQL注入原理：</p>
+<p>当攻击者发送的sql语句被sql解释器执行，通过执行这些恶意语句欺骗数据库执行，导致数据库信息泄露。</p>
+<p>SQL注入攻击指的是通过构建特殊的输入作为参数传入Web应用程序，而这些输入大都是SQL语法里的一些组合，通过执行SQL语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。</p>
+<p>攻击的目的只有一个，就是为了绕过程序限制，使用户输入的数据带入数据库中执行，利用数据库的特殊性获取更多的信息或更多的权限。</p>
+<p>基本原理：</p>
+<p>①攻击者访问有SQL注入漏洞的网站，寻找注入点</p>
+<p>②攻击者构造注入语句，注入语句和程序中的SQL语句结合生成新的sql语句</p>
+<p>③新的sql语句被提交到数据库中进行处理</p>
+<p>④数据库执行了新的SQL语句，引发SQL注入攻击</p>
+<p><strong>9.发现demo.jsp?uid=110注入点，你有哪几种思路获取webshell，哪种是优选</strong></p>
+<p>有写入权限的，构造联合查询语句使用using INTO OUTFILE，可以将查询的输出重定向到系统的文件中，这样去写入 WebShell </p>
+<p>使用 sqlmap –os-shell 原理和上面一种相同，来直接获得一个 Shell，这样效率更高 </p>
+<p>通过构造联合查询语句得到网站管理员的账户和密码，然后扫后台登录后台，再在后台通过改包上传等方法上传 Shell</p>
+<p><strong>10.简述Web安全目标及技术</strong></p>
+<p>Web安全目标是保护web服务器及其数据的安全、保护WEB服务器和用户之间传递信息的安全、保护终端用户计算机及其连入Internet的设备安全。Web安全技术主要包括:web服务器安全技术,web应用服务安全技术和web浏览安全技术</p>
+<hr>
+<p>（PS:这些答案来源与网络，老师说可以百度emmmmmm然后自己就没有动脑子，直接百度复制粘贴）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络攻防课程/" rel="tag"># 网络攻防课程</a>
+          
+            <a href="/tags/考试/" rel="tag"># 考试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/01/2018-07-01-ARP攻击（Arpspoof）/" rel="next" title="ARP攻击（Arpspoof）">
+                <i class="fa fa-chevron-left"></i> ARP攻击（Arpspoof）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/05/2018-07-05-网络攻防期末考(实战)/" rel="prev" title="网络攻防期末考(实战)">
+                网络攻防期末考(实战) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.png"
+                alt="句末" />
+            
+              <p class="site-author-name" itemprop="name">句末</p>
+              <p class="site-description motion-element" itemprop="description">一个有点文艺的不会web的渣渣。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">句末</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

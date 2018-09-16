@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Writeup,ctf," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="（真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ） 0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到fla">
+<meta name="keywords" content="Writeup,ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HBNIS2018预选赛测试题WP">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/2018-07-26-HBNIS2018预选赛测试题WP/index.html">
+<meta property="og:site_name" content="ch3nie&#39;s blog">
+<meta property="og:description" content="（真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ） 0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到fla">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-fb4870925b985e0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-fc4d7d508bcf3008.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-c5688ff62914bfb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-b063fc8b6c7b9eac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-300f6d9e5e8b8089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-184f991cc8b35e5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-3c2316ed7c3d5aa4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-16T15:02:11.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HBNIS2018预选赛测试题WP">
+<meta name="twitter:description" content="（真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ） 0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到fla">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/26/2018-07-26-HBNIS2018预选赛测试题WP/"/>
+
+
+
+
+
+  <title>HBNIS2018预选赛测试题WP | ch3nie's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://ch3nie.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ch3nie's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/2018-07-26-HBNIS2018预选赛测试题WP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="句末">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch3nie's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HBNIS2018预选赛测试题WP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T12:09:22+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ctf/" itemprop="url" rel="index">
+                    <span itemprop="name">ctf</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>（真是第一次遇见这种对萌新我如此友好的ctf题○(<em>￣︶￣</em>)○ ）</p>
+<h2 id="0x01：流量分析一"><a href="#0x01：流量分析一" class="headerlink" title="0x01：流量分析一"></a>0x01：流量分析一</h2><p>题述：附件为某网络设备的访问信息，请分析文件，获取flag</p>
+<p>是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<h2 id="0x02：图片隐写一"><a href="#0x02：图片隐写一" class="headerlink" title="0x02：图片隐写一"></a>0x02：图片隐写一</h2><p>题述：惹不起惹不起 </p>
+<p>载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-fb4870925b985e0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<p>然后打开gif图片，拿到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;gif_is_good&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x03-密码一"><a href="#0x03-密码一" class="headerlink" title="0x03:密码一"></a>0x03:密码一</h2><p>题述：Wm14aFozdGlZWE5sWDJWdVkyOWtaWDA9 （签到题）</p>
+<p>直接解两遍base64就出来flag了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;base_encode&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x04-密码二"><a href="#0x04-密码二" class="headerlink" title="0x04:密码二"></a>0x04:密码二</h2><p>题述：请破译该密文获取flag</p>
+<p>密文：43 74 43 53 63 83 32 71 42 63 62 32</p>
+<p>提示：我喜欢手机</p>
+<p>把手机输入法换成拼音九键，每一组的第一个字母代表几键，第二个字母代表改键上的第几个字母</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ILOVEPHONE</span><br></pre></td></tr></table></figure>
+<p>我也不知道为什么flag要去掉is  QAQ</p>
+<h2 id="0x05-图片隐写二"><a href="#0x05-图片隐写二" class="headerlink" title="0x05:图片隐写二"></a>0x05:图片隐写二</h2><p>题述：目瞪口呆 </p>
+<p>载下来的文件是个jpeg图片，按照常规思路先扔Hex看一下emmmmm好吧，直接就看见了flag</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-fc4d7d508bcf3008.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<h2 id="0x06：密码三-请破译该密文"><a href="#0x06：密码三-请破译该密文" class="headerlink" title="0x06：密码三(请破译该密文 )"></a>0x06：密码三(请破译该密文 )</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ﾟωﾟﾉ= /｀ｍ´）ﾉ ~┻━┻   //*´∇｀*/ [&apos;_&apos;]; o=(ﾟｰﾟ)  =_=3; c=(ﾟΘﾟ) =(ﾟｰﾟ)-(ﾟｰﾟ); (ﾟДﾟ) =(ﾟΘﾟ)= (o^_^o)/ (o^_^o);(ﾟДﾟ)=&#123;ﾟΘﾟ: &apos;_&apos; ,ﾟωﾟﾉ : ((ﾟωﾟﾉ==3) +&apos;_&apos;) [ﾟΘﾟ] ,ﾟｰﾟﾉ :(ﾟωﾟﾉ+ &apos;_&apos;)[o^_^o -(ﾟΘﾟ)] ,ﾟДﾟﾉ:((ﾟｰﾟ==3) +&apos;_&apos;)[ﾟｰﾟ] &#125;; (ﾟДﾟ) [ﾟΘﾟ] =((ﾟωﾟﾉ==3) +&apos;_&apos;) [c^_^o];(ﾟДﾟ) [&apos;c&apos;] = ((ﾟДﾟ)+&apos;_&apos;) [ (ﾟｰﾟ)+(ﾟｰﾟ)-(ﾟΘﾟ) ];(ﾟДﾟ) [&apos;o&apos;] = ((ﾟДﾟ)+&apos;_&apos;) [ﾟΘﾟ];(ﾟoﾟ)=(ﾟДﾟ) [&apos;c&apos;]+(ﾟДﾟ) [&apos;o&apos;]+(ﾟωﾟﾉ +&apos;_&apos;)[ﾟΘﾟ]+ ((ﾟωﾟﾉ==3) +&apos;_&apos;) [ﾟｰﾟ] + ((ﾟДﾟ) +&apos;_&apos;) [(ﾟｰﾟ)+(ﾟｰﾟ)]+ ((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ]+((ﾟｰﾟ==3) +&apos;_&apos;) [(ﾟｰﾟ) - (ﾟΘﾟ)]+(ﾟДﾟ) [&apos;c&apos;]+((ﾟДﾟ)+&apos;_&apos;) [(ﾟｰﾟ)+(ﾟｰﾟ)]+ (ﾟДﾟ) [&apos;o&apos;]+((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ];(ﾟДﾟ) [&apos;_&apos;] =(o^_^o) [ﾟoﾟ] [ﾟoﾟ];(ﾟεﾟ)=((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ]+ (ﾟДﾟ) .ﾟДﾟﾉ+((ﾟДﾟ)+&apos;_&apos;) [(ﾟｰﾟ) + (ﾟｰﾟ)]+((ﾟｰﾟ==3) +&apos;_&apos;) [o^_^o -ﾟΘﾟ]+((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ]+ (ﾟωﾟﾉ +&apos;_&apos;) [ﾟΘﾟ]; (ﾟｰﾟ)+=(ﾟΘﾟ); (ﾟДﾟ)[ﾟεﾟ]=&apos;\\&apos;; (ﾟДﾟ).ﾟΘﾟﾉ=(ﾟДﾟ+ ﾟｰﾟ)[o^_^o -(ﾟΘﾟ)];(oﾟｰﾟo)=(ﾟωﾟﾉ +&apos;_&apos;)[c^_^o];(ﾟДﾟ) [ﾟoﾟ]=&apos;\&quot;&apos;;(ﾟДﾟ) [&apos;_&apos;] ( (ﾟДﾟ) [&apos;_&apos;] (ﾟεﾟ+(ﾟДﾟ)[ﾟoﾟ]+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((o^_^o) +(o^_^o))+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((o^_^o) +(o^_^o))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (ﾟΘﾟ))+ (c^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((o^_^o) +(o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (o^_^o))+ (o^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ ((o^_^o) +(o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (o^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (o^_^o)+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+((o^_^o) +(o^_^o))+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+((o^_^o) +(o^_^o))+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (o^_^o))+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (o^_^o))+ (o^_^o)+ (ﾟДﾟ)[ﾟoﾟ]) (ﾟΘﾟ)) (&apos;_&apos;);</span><br></pre></td></tr></table></figure>
+<p>js加密，直接扔控制台执行，弹出flag</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-c5688ff62914bfb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<h2 id="0x07：基础逆向"><a href="#0x07：基础逆向" class="headerlink" title="0x07：基础逆向"></a>0x07：基础逆向</h2><p>作为一个非逆向手，对逆向是完全蒙的，然而前面的题都挺简单，这个题既然写了基础，那应该可以试一下，嗯~ o(<em>￣▽￣</em>)o真的打开就看见了flag</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-b063fc8b6c7b9eac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<h2 id="0x08：图片隐写三"><a href="#0x08：图片隐写三" class="headerlink" title="0x08：图片隐写三"></a>0x08：图片隐写三</h2><p>题述：附件为心理暗示图，请分析该文件，获取flag </p>
+<p>扔Hex里面看一下，binwalk看一下，无。png图片是可以最低位隐写的，扔Stegsolve看一下</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-300f6d9e5e8b8089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<h2 id="0x09：流量分析二"><a href="#0x09：流量分析二" class="headerlink" title="0x09：流量分析二"></a>0x09：流量分析二</h2><p>题述：附件中的文件记录了黑客使用sql注入攻击的执行内容，请分析该数据包，获取flag </p>
+<p>sql注入攻击，过滤http流量，分析数据包，拿到flag</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-184f991cc8b35e5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<h2 id="0x0A：图片隐写四"><a href="#0x0A：图片隐写四" class="headerlink" title="0x0A：图片隐写四"></a>0x0A：图片隐写四</h2><p>题述：芳心暗许    请获取附件中的内容，找到flag，并提交 </p>
+<p>直接扔Hex里面搜索发现了flag</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-3c2316ed7c3d5aa4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
+<p>（PS：真的对我这样的萌新超级友好，就是不知道正赛会凉多透，祝好运(￣▽￣)~■□~(￣▽￣) ）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/15/2018-07-15-2018-Xman选拔赛（夏）/" rel="next" title="2018-Xman选拔赛（夏）">
+                <i class="fa fa-chevron-left"></i> 2018-Xman选拔赛（夏）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.png"
+                alt="句末" />
+            
+              <p class="site-author-name" itemprop="name">句末</p>
+              <p class="site-description motion-element" itemprop="description">一个有点文艺的不会web的渣渣。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01：流量分析一"><span class="nav-number">1.</span> <span class="nav-text">0x01：流量分析一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02：图片隐写一"><span class="nav-number">2.</span> <span class="nav-text">0x02：图片隐写一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-密码一"><span class="nav-number">3.</span> <span class="nav-text">0x03:密码一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-密码二"><span class="nav-number">4.</span> <span class="nav-text">0x04:密码二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-图片隐写二"><span class="nav-number">5.</span> <span class="nav-text">0x05:图片隐写二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06：密码三-请破译该密文"><span class="nav-number">6.</span> <span class="nav-text">0x06：密码三(请破译该密文 )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07：基础逆向"><span class="nav-number">7.</span> <span class="nav-text">0x07：基础逆向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08：图片隐写三"><span class="nav-number">8.</span> <span class="nav-text">0x08：图片隐写三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09：流量分析二"><span class="nav-number">9.</span> <span class="nav-text">0x09：流量分析二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x0A：图片隐写四"><span class="nav-number">10.</span> <span class="nav-text">0x0A：图片隐写四</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">句末</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
