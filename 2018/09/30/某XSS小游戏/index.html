@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Writeup,ctf,实验吧,misc," />
+  <meta name="keywords" content="XXS," />
 
 
 
@@ -79,18 +79,37 @@
 
 
 
-<meta name="description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
-<meta name="keywords" content="Writeup,ctf,实验吧,misc">
+<meta name="description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 alert(1)&amp;lt;””&amp;gt;  3.第三关我们需要闭合单引号，而且&amp;lt;&amp;gt;被过滤掉了  当&amp;lt;&amp;gt;被过滤时我们可以利用时间来进行弹框’ onclick=alert(1) ‘  4.第四关">
+<meta name="keywords" content="XXS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MD5之守株待兔-WP">
-<meta property="og:url" content="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/index.html">
+<meta property="og:title" content="某XSS小游戏">
+<meta property="og:url" content="http://yoursite.com/2018/09/30/某XSS小游戏/index.html">
 <meta property="og:site_name" content="ch3nie&#39;s blog">
-<meta property="og:description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
+<meta property="og:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 alert(1)&amp;lt;””&amp;gt;  3.第三关我们需要闭合单引号，而且&amp;lt;&amp;gt;被过滤掉了  当&amp;lt;&amp;gt;被过滤时我们可以利用时间来进行弹框’ onclick=alert(1) ‘  4.第四关">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-09T04:17:36.485Z">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/65fb1a8c98dd48639a4aba14e3e9879e/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/0d4c3a2f3e1e4938b28f11f791c31bf5/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/0c9a6cf4c414425e815f341bdecd3549/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/57fe01f791914522a23d06bf934bb2d1/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/147c5f22194e4d9bbbea629657ce132d/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/2bf44a1efb5c444e8432b806920479d5/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/f771b291c4344e969f0ef718a21bc73a/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/ab291159e1a84ccc8ca3c09ab4a3f2c6/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/79534b084bb843448ae0d6d52254a6a2/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/e9f8e09c910b433ab4e58d5be5877720/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/ee2d8158b958487b813b3be578c4b423/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/fbaa98f8ce5b4afa8a61565a096e9264/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/d6e2961dab0f4b9eb2cf811fe7d07783/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/ee1301f0707c48aca984e26fcfe72841/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/4f1cccb4e8c8466fb2b382c5983b68a2/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/097149da43254be4a75706e9f1d88c1d/clipboard.png">
+<meta property="og:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/75f6127ce0fc4ba3b8848b3302b3e580/clipboard.png">
+<meta property="og:image" content="file:///E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/862faec3bfc840ec866262713d369fb2/clipboard.png">
+<meta property="og:updated_time" content="2018-10-08T11:22:26.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MD5之守株待兔-WP">
-<meta name="twitter:description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
+<meta name="twitter:title" content="某XSS小游戏">
+<meta name="twitter:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 alert(1)&amp;lt;””&amp;gt;  3.第三关我们需要闭合单引号，而且&amp;lt;&amp;gt;被过滤掉了  当&amp;lt;&amp;gt;被过滤时我们可以利用时间来进行弹框’ onclick=alert(1) ‘  4.第四关">
+<meta name="twitter:image" content="e:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/65fb1a8c98dd48639a4aba14e3e9879e/clipboard.png">
 
 
 
@@ -120,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/30/某XSS小游戏/"/>
 
 
 
 
 
-  <title>MD5之守株待兔-WP | ch3nie's blog</title>
+  <title>某XSS小游戏 | ch3nie's blog</title>
   
 
 
@@ -274,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/某XSS小游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -291,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MD5之守株待兔-WP</h1>
+          <h1 class="post-title" itemprop="name headline">某XSS小游戏</h1>
         
 
         <div class="post-meta">
@@ -303,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T21:25:25+08:00">
-                2018-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T10:57:35+08:00">
+                2018-09-30
               </time>
             
 
@@ -313,28 +332,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -363,13 +360,63 @@
       
 
       
-        <h3 id="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><a href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙" class="headerlink" title="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"></a>MD5之守株待兔，你需要找到和系统锁匹配的钥匙</h3><p>hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。</p>
-<p>题目链接：<a href="http://ctf5.shiyanbar.com/misc/keys/keys.php" target="_blank" rel="noopener">http://ctf5.shiyanbar.com/misc/keys/keys.php</a></p>
-<p>点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的</p>
-<p>题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码]</p>
-<p>系统秘钥一直在变化，猜可能是时间戳</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">import hashlib   </span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">import thread</span><br><span class="line"></span><br><span class="line">def md5(src):</span><br><span class="line"></span><br><span class="line">	m2 = hashlib.md5()</span><br><span class="line"></span><br><span class="line">	m2.update(src)</span><br><span class="line"></span><br><span class="line">	return m2.hexdigest()</span><br><span class="line"></span><br><span class="line">def getTime():</span><br><span class="line"></span><br><span class="line">	return str(int(time.time())+3)</span><br><span class="line"></span><br><span class="line">def getFlag(suibian):</span><br><span class="line"></span><br><span class="line">	url=&apos;http://ctf5.shiyanbar.com/misc/keys/keys.php?key=&apos;+suibian</span><br><span class="line"></span><br><span class="line">	r=requests.get(url)</span><br><span class="line"></span><br><span class="line">	# if(&apos;flag&apos; in r.text):</span><br><span class="line"></span><br><span class="line">	print(r.content)</span><br><span class="line"></span><br><span class="line">for i in range(10):</span><br><span class="line"></span><br><span class="line">	getFlag(getTime())</span><br><span class="line"></span><br><span class="line">	time.sleep(1)</span><br></pre></td></tr></table></figure>
-<p>运行python脚本得到flag</p>
+        <p>昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分</p>
+<hr>
+<p>1.第一关没有过滤，直接弹就好</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/65fb1a8c98dd48639a4aba14e3e9879e/clipboard.png" alt="img"></p>
+<p>2.第二关直接<script>alert(jumo)</script>发现不能弹，我们看一下源码</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/0d4c3a2f3e1e4938b28f11f791c31bf5/clipboard.png" alt="img"></p>
+<p>我们需要把”双引号闭合掉 <input name="keyword" value=""><script>alert(1)</script>&lt;””&gt;</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/0c9a6cf4c414425e815f341bdecd3549/clipboard.png" alt="img"></p>
+<p>3.第三关我们需要闭合单引号，而且&lt;&gt;被过滤掉了</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/57fe01f791914522a23d06bf934bb2d1/clipboard.png" alt="img"></p>
+<p>当&lt;&gt;被过滤时我们可以利用时间来进行弹框’ onclick=alert(1) ‘</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/147c5f22194e4d9bbbea629657ce132d/clipboard.png" alt="img"></p>
+<p>4.第四关和第三关差不多，&lt;&gt;被过滤掉了，只不过需要闭合的单引号’变成了双引号”</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/2bf44a1efb5c444e8432b806920479d5/clipboard.png" alt="img"></p>
+<p>5.我们用第四关的payload试一下发现on事件被过滤掉了</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/f771b291c4344e969f0ef718a21bc73a/clipboard.png" alt="img"></p>
+<p><script>标签也被过滤掉了</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/5be2d6f1135345f9a6046f0e33c3a25c/clipboard.png" alt="img"></p>
+<p>然后测试发现标签<a> 没有被过滤掉，我们可以尝试构造链接来触发弹框</p>
+<p>payload:”&gt;<a href="javascript:alert('1')">111</a>&lt;”</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/47618fa5b6fb4e0daca01511a0c6aaa4/clipboard.png" alt="img"></p>
+<p>6.第六关我们可以看到标签<a>的href属性被过滤掉了</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/cda7c1f9f57e41d6934d5293c193fb99/clipboard.png" alt="img"></p>
+<p>我们尝试一下大小写绕过发现可以，payload如下”&gt;<sCript>alert(“1”)</script>&lt;”</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/ab291159e1a84ccc8ca3c09ab4a3f2c6/clipboard.png" alt="img"></p>
+<p>用href属性的payload：”&gt;<a href="javascript:alert('1')" target="_blank" rel="noopener">111</a>&lt;”</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/79534b084bb843448ae0d6d52254a6a2/clipboard.png" alt="img"></p>
+<p>7.输入<script>alert(“1”)</script>发现script过滤掉了，用href和on事件发现也过滤掉了，然后测试用大小写绕过未果</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/e9f8e09c910b433ab4e58d5be5877720/clipboard.png" alt="img"></p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/ee2d8158b958487b813b3be578c4b423/clipboard.png" alt="img"></p>
+<p>用双写发现可以绕过</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/fbaa98f8ce5b4afa8a61565a096e9264/clipboard.png" alt="img"></p>
+<p>8.查看源码发现用了标签<a>的href属性，我们测试构造这样的payload：<a href="javascript:alert('1')" target="_blank" rel="noopener">111</a></a></p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/d6e2961dab0f4b9eb2cf811fe7d07783/clipboard.png" alt="img"></p>
+<p>我们发现javascript被替换为javascr_ipt，且大小写绕过不行（大写被转换为小写了），我们用编码来绕过，javascript:alert(1)经过Unicode编码得到payload：&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/ee1301f0707c48aca984e26fcfe72841/clipboard.png" alt="img"></p>
+<p>看了别人的做法发现在被过滤的关键词中间插个tab符，payload：javas%09cript:alert(‘1’)</p>
+<p>9.第九关用payload会报错”您的链接不合法？有没有！”链接不合法，然后看了一下源码，源码中有个strpos()函数，查找字符串”http://“在str7（传入的keyword经过处理替换后得到str7）中第一次出现的位置，也就是只要url中出现http://那么就可以绕过，如果url中没有匹配到http://则链接不合法</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/4f1cccb4e8c8466fb2b382c5983b68a2/clipboard.png" alt="img"></p>
+<p>我们在alert中写http://来进行绕过，payload为javas%09cript:alert(‘http://‘)</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/097149da43254be4a75706e9f1d88c1d/clipboard.png" alt="img"></p>
+<p>10.呃，跳到第十题之后发现keyword不能用没有xss输出点，看一下源码，发现三个hidden的input，经过测试发现第三个参数可以xss，即t_sort可以进行xss</p>
+<p><img src="E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/75f6127ce0fc4ba3b8848b3302b3e580/clipboard.png" alt="img"></p>
+<p>我们在t_sort处进行xss，发现&lt;&gt;被过滤了，然后我用了on事件去构造payload，然后修改hidden属性，去点击input框成功xss</p>
+<p><img src="file:///E:/YoudaoNote/qq43F96FF1FFA3BF0C81FAD57388370930/862faec3bfc840ec866262713d369fb2/clipboard.png" alt="img"></p>
+<hr>
+<p>一些trick：</p>
+<ol>
+<li>ip可以用10制或16进制表示</li>
+<li>过滤” . “，用with语句：with(a){ …… } =&gt;类似 if 语句，</li>
+<li>过滤” , “，用换行</li>
+<li>HTML实体编码中，” ; “可以去掉</li>
+<li>利用拼接一个eval函数执行代码，例如”a”+eval(“alert(1)”)</li>
+<li>ip可以用10制或16进制表示</li>
+</ol>
+<hr>
+<p>只写到了第十关，还没有写完，和朋友约好的饭，现在要出门了，后面的有时间在写</p>
 
       
     </div>
@@ -387,13 +434,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
-          
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-            <a href="/tags/实验吧/" rel="tag"># 实验吧</a>
-          
-            <a href="/tags/misc/" rel="tag"># misc</a>
+            <a href="/tags/XXS/" rel="tag"># XXS</a>
           
         </div>
       
@@ -406,15 +447,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/26/HBNIS2018预选赛测试题WP/" rel="next" title="HBNIS2018预选赛测试题WP">
+                <i class="fa fa-chevron-left"></i> HBNIS2018预选赛测试题WP
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/27/docker/" rel="prev" title="docker">
-                docker <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -466,17 +507,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -540,22 +572,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><span class="nav-number">1.</span> <span class="nav-text">MD5之守株待兔，你需要找到和系统锁匹配的钥匙</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

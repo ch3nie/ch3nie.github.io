@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Writeup,ctf,实验吧,misc," />
+  <meta name="keywords" content="ARP,实验," />
 
 
 
@@ -79,18 +79,30 @@
 
 
 
-<meta name="description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
-<meta name="keywords" content="Writeup,ctf,实验吧,misc">
+<meta name="description" content="（一枚时常文艺一下的贼皮理工科小萌新，欢迎大佬指点， ( ≖‿≖)嗷）~~这个月的文章还没有写emmm好吧，过了12点，已经是新的一月了，害pia被老大骂，所以现在赶紧写文章（PS：老大求饶命）  ARP即地址地址解析协议，即ARP协议通过IP地址来查找主机的MAC地址，把IP地址转换为MAC地址。ARP攻击又称为中间人攻击，是一种在局域网中常用的攻击手段。 ARP断网攻击在实验之前我们首先要知道">
+<meta name="keywords" content="ARP,实验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MD5之守株待兔-WP">
-<meta property="og:url" content="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/index.html">
+<meta property="og:title" content="ARP攻击（Arpspoof）">
+<meta property="og:url" content="http://yoursite.com/2018/07/01/ARP攻击（Arpspoof）/index.html">
 <meta property="og:site_name" content="ch3nie&#39;s blog">
-<meta property="og:description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
+<meta property="og:description" content="（一枚时常文艺一下的贼皮理工科小萌新，欢迎大佬指点， ( ≖‿≖)嗷）~~这个月的文章还没有写emmm好吧，过了12点，已经是新的一月了，害pia被老大骂，所以现在赶紧写文章（PS：老大求饶命）  ARP即地址地址解析协议，即ARP协议通过IP地址来查找主机的MAC地址，把IP地址转换为MAC地址。ARP攻击又称为中间人攻击，是一种在局域网中常用的攻击手段。 ARP断网攻击在实验之前我们首先要知道">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-09T04:17:36.485Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-5936dc197ceba3f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-ce35d459d6c3edca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-58989fd6322eaf05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-fd0a135f3dafaea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-cb8598870682cb4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-2ddf19771ff82f66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-4ddc5e05effb7581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-0266d37b850fa969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-f151e610777f6be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-3626b28ecda3c4b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-38a0cd9f45ea3063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-16T14:44:02.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MD5之守株待兔-WP">
-<meta name="twitter:description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
+<meta name="twitter:title" content="ARP攻击（Arpspoof）">
+<meta name="twitter:description" content="（一枚时常文艺一下的贼皮理工科小萌新，欢迎大佬指点， ( ≖‿≖)嗷）~~这个月的文章还没有写emmm好吧，过了12点，已经是新的一月了，害pia被老大骂，所以现在赶紧写文章（PS：老大求饶命）  ARP即地址地址解析协议，即ARP协议通过IP地址来查找主机的MAC地址，把IP地址转换为MAC地址。ARP攻击又称为中间人攻击，是一种在局域网中常用的攻击手段。 ARP断网攻击在实验之前我们首先要知道">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10976729-5936dc197ceba3f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -120,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/01/ARP攻击（Arpspoof）/"/>
 
 
 
 
 
-  <title>MD5之守株待兔-WP | ch3nie's blog</title>
+  <title>ARP攻击（Arpspoof） | ch3nie's blog</title>
   
 
 
@@ -274,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/01/ARP攻击（Arpspoof）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -291,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MD5之守株待兔-WP</h1>
+          <h1 class="post-title" itemprop="name headline">ARP攻击（Arpspoof）</h1>
         
 
         <div class="post-meta">
@@ -303,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T21:25:25+08:00">
-                2018-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-01T09:57:29+08:00">
+                2018-07-01
               </time>
             
 
@@ -326,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
+                  <a href="/categories/ARP/" itemprop="url" rel="index">
+                    <span itemprop="name">ARP</span>
                   </a>
                 </span>
 
@@ -363,13 +375,32 @@
       
 
       
-        <h3 id="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><a href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙" class="headerlink" title="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"></a>MD5之守株待兔，你需要找到和系统锁匹配的钥匙</h3><p>hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。</p>
-<p>题目链接：<a href="http://ctf5.shiyanbar.com/misc/keys/keys.php" target="_blank" rel="noopener">http://ctf5.shiyanbar.com/misc/keys/keys.php</a></p>
-<p>点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的</p>
-<p>题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码]</p>
-<p>系统秘钥一直在变化，猜可能是时间戳</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">import hashlib   </span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">import thread</span><br><span class="line"></span><br><span class="line">def md5(src):</span><br><span class="line"></span><br><span class="line">	m2 = hashlib.md5()</span><br><span class="line"></span><br><span class="line">	m2.update(src)</span><br><span class="line"></span><br><span class="line">	return m2.hexdigest()</span><br><span class="line"></span><br><span class="line">def getTime():</span><br><span class="line"></span><br><span class="line">	return str(int(time.time())+3)</span><br><span class="line"></span><br><span class="line">def getFlag(suibian):</span><br><span class="line"></span><br><span class="line">	url=&apos;http://ctf5.shiyanbar.com/misc/keys/keys.php?key=&apos;+suibian</span><br><span class="line"></span><br><span class="line">	r=requests.get(url)</span><br><span class="line"></span><br><span class="line">	# if(&apos;flag&apos; in r.text):</span><br><span class="line"></span><br><span class="line">	print(r.content)</span><br><span class="line"></span><br><span class="line">for i in range(10):</span><br><span class="line"></span><br><span class="line">	getFlag(getTime())</span><br><span class="line"></span><br><span class="line">	time.sleep(1)</span><br></pre></td></tr></table></figure>
-<p>运行python脚本得到flag</p>
+        <p>（一枚时常文艺一下的贼皮理工科小萌新，欢迎大佬指点， ( ≖‿≖)嗷<del>）<br>~~这个月的文章还没有写</del>emmm好吧，过了12点，已经是新的一月了，害pia被老大骂，所以现在赶紧写文章（PS：老大求饶命）</p>
+<hr>
+<p>ARP即地址地址解析协议，即ARP协议通过IP地址来查找主机的MAC地址，把IP地址转换为MAC地址。ARP攻击又称为中间人攻击，是一种在局域网中常用的攻击手段。</p>
+<h3 id="ARP断网攻击"><a href="#ARP断网攻击" class="headerlink" title="ARP断网攻击"></a>ARP断网攻击</h3><p>在实验之前我们首先要知道ARP断网攻击是局域网攻击，我们要保证目标主机必须和自己处于一个局域网内，且自己和目标主机网络应该是通的</p>
+<p>在ARP断网攻击之前 ，我们先用fping探测该局域网中的存活地址</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-5936dc197ceba3f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="fping探测局域网存活地址"></p>
+<p>探测到的存活地址，就是我们的目标主机</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-ce35d459d6c3edca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标主机ip"><br>我们在攻击之前先看一下目标机的arp缓存<br><img src="http://upload-images.jianshu.io/upload_images/10976729-58989fd6322eaf05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击前目标机arp缓存"><br><img src="http://upload-images.jianshu.io/upload_images/10976729-fd0a135f3dafaea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标主机网络正常"></p>
+<p>目标主机能ping通百度，说明目标主机的网络环境没问题，下面我们开始断网攻击，用到的是kali里面的一个工具，arpspoof</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof   -i   网卡   -t    目标IP    网关</span><br></pre></td></tr></table></figure>
+<p>在攻击之前，目标主机的网络是通的，攻击成功后，目标主机断网“请求超时”</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-cb8598870682cb4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击成功"></p>
+<p>在攻击结束后，目标主机网络恢复</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-2ddf19771ff82f66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="停止攻击"></p>
+<h3 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h3><p>ARP欺骗，是让目标主机的流量经过主机的网卡，再从网关出去，而网关也会把原本流入目标机的流量经过我。</p>
+<p>在进行arp欺骗之前，我们要先开启本机的IP转发功能，如果不开启的话，我们攻击之后会使目标机断网，而不是欺骗。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-4ddc5e05effb7581.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开启IP转发"></p>
+<p>下面我们开始对目标主机进行欺骗</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i 网卡 -t 目标IP 网关</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-0266d37b850fa969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ARP欺骗"></p>
+<p>我们用图片嗅探工具driftnet来捕获目标主机查看的图片</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driftnet -i eth0</span><br></pre></td></tr></table></figure>
+<p>因为我们欺骗目标机，使目标机的流量经过自己的网卡，所以这里我们嗅探自己的网卡，下图成功ARP欺骗</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-f151e610777f6be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击机图片嗅探"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/10976729-3626b28ecda3c4b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目标机"><br>下图是攻击后目标机的arp缓存<br><img src="http://upload-images.jianshu.io/upload_images/10976729-38a0cd9f45ea3063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="攻击后arp缓存"></p>
+<p>emmmmm  就先到这里吧  一晚上没睡好 饭也没吃，肚子咕咕叫，先觅食去~</p>
 
       
     </div>
@@ -387,13 +418,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+            <a href="/tags/ARP/" rel="tag"># ARP</a>
           
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-            <a href="/tags/实验吧/" rel="tag"># 实验吧</a>
-          
-            <a href="/tags/misc/" rel="tag"># misc</a>
+            <a href="/tags/实验/" rel="tag"># 实验</a>
           
         </div>
       
@@ -406,14 +433,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/27/docker搭建DVWA/" rel="next" title="docker搭建DVWA">
+                <i class="fa fa-chevron-left"></i> docker搭建DVWA
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/27/docker/" rel="prev" title="docker">
-                docker <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/04/网络攻防期末考(理论)/" rel="prev" title="网络攻防期末考（理论）">
+                网络攻防期末考（理论） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -550,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><span class="nav-number">1.</span> <span class="nav-text">MD5之守株待兔，你需要找到和系统锁匹配的钥匙</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP断网攻击"><span class="nav-number">1.</span> <span class="nav-text">ARP断网攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP欺骗"><span class="nav-number">2.</span> <span class="nav-text">ARP欺骗</span></a></li></ol></div>
             
 
           </div>

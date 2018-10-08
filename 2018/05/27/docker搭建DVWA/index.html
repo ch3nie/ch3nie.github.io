@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Writeup,ctf,实验吧,misc," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -79,18 +79,33 @@
 
 
 
-<meta name="description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
-<meta name="keywords" content="Writeup,ctf,实验吧,misc">
+<meta name="description" content="1. 先创建一个新的容器在创建容器时，会自动获取一个容器id，对于每个容器他的id都是唯一的 2. 进入正在运行的容器sudo docker exec -it id /bin/bashid是创建容器时自动获取的，可以通过id对容器进行操作，也可以通过容器的名字操作容器 3. Lamp（web应用软件组合）apache1.安装apacheapt-get install apache22.启动apac">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MD5之守株待兔-WP">
-<meta property="og:url" content="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/index.html">
+<meta property="og:title" content="docker搭建DVWA">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/docker搭建DVWA/index.html">
 <meta property="og:site_name" content="ch3nie&#39;s blog">
-<meta property="og:description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
+<meta property="og:description" content="1. 先创建一个新的容器在创建容器时，会自动获取一个容器id，对于每个容器他的id都是唯一的 2. 进入正在运行的容器sudo docker exec -it id /bin/bashid是创建容器时自动获取的，可以通过id对容器进行操作，也可以通过容器的名字操作容器 3. Lamp（web应用软件组合）apache1.安装apacheapt-get install apache22.启动apac">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-09T04:17:36.485Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-33ca24294a10a8d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-8d092dbe221d4ab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-85202f2631383509.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-df4e34dab4d4992e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-8ac7325e3462bff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-ca0f9251c6608530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-097aceeeb3a987b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-6e46b5050fbb6888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-dda9f03f90c20400.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-8927af5a9ffd9904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-a5e464942fd7b316.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-b94b4d9b7df4627c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-91c523ec3807422a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-23b49dfcddc2b486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-16T14:40:32.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MD5之守株待兔-WP">
-<meta name="twitter:description" content="MD5之守株待兔，你需要找到和系统锁匹配的钥匙hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。 题目链接：http://ctf5.shiyanbar.com/misc/keys/keys.php 点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的 题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码] 系统秘钥一直在变化，猜可能是时间戳">
+<meta name="twitter:title" content="docker搭建DVWA">
+<meta name="twitter:description" content="1. 先创建一个新的容器在创建容器时，会自动获取一个容器id，对于每个容器他的id都是唯一的 2. 进入正在运行的容器sudo docker exec -it id /bin/bashid是创建容器时自动获取的，可以通过id对容器进行操作，也可以通过容器的名字操作容器 3. Lamp（web应用软件组合）apache1.安装apacheapt-get install apache22.启动apac">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10976729-33ca24294a10a8d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -120,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/27/docker搭建DVWA/"/>
 
 
 
 
 
-  <title>MD5之守株待兔-WP | ch3nie's blog</title>
+  <title>docker搭建DVWA | ch3nie's blog</title>
   
 
 
@@ -274,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/MD5之守株待兔-WP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/docker搭建DVWA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="句末">
@@ -291,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MD5之守株待兔-WP</h1>
+          <h1 class="post-title" itemprop="name headline">docker搭建DVWA</h1>
         
 
         <div class="post-meta">
@@ -303,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T21:25:25+08:00">
-                2018-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T13:29:33+08:00">
+                2018-05-27
               </time>
             
 
@@ -326,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -363,13 +378,13 @@
       
 
       
-        <h3 id="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><a href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙" class="headerlink" title="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"></a>MD5之守株待兔，你需要找到和系统锁匹配的钥匙</h3><p>hint：从系统锁下手，通过get方式key字段提交答案，直到您的钥匙与系统锁相等则成功。</p>
-<p>题目链接：<a href="http://ctf5.shiyanbar.com/misc/keys/keys.php" target="_blank" rel="noopener">http://ctf5.shiyanbar.com/misc/keys/keys.php</a></p>
-<p>点开链接可以发现有两串字符，而且系统的秘钥是一直在变化的</p>
-<p>题目中已经给了MD5加密，那么用MD5解密发现您的秘钥是[空密码]</p>
-<p>系统秘钥一直在变化，猜可能是时间戳</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">import hashlib   </span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">import thread</span><br><span class="line"></span><br><span class="line">def md5(src):</span><br><span class="line"></span><br><span class="line">	m2 = hashlib.md5()</span><br><span class="line"></span><br><span class="line">	m2.update(src)</span><br><span class="line"></span><br><span class="line">	return m2.hexdigest()</span><br><span class="line"></span><br><span class="line">def getTime():</span><br><span class="line"></span><br><span class="line">	return str(int(time.time())+3)</span><br><span class="line"></span><br><span class="line">def getFlag(suibian):</span><br><span class="line"></span><br><span class="line">	url=&apos;http://ctf5.shiyanbar.com/misc/keys/keys.php?key=&apos;+suibian</span><br><span class="line"></span><br><span class="line">	r=requests.get(url)</span><br><span class="line"></span><br><span class="line">	# if(&apos;flag&apos; in r.text):</span><br><span class="line"></span><br><span class="line">	print(r.content)</span><br><span class="line"></span><br><span class="line">for i in range(10):</span><br><span class="line"></span><br><span class="line">	getFlag(getTime())</span><br><span class="line"></span><br><span class="line">	time.sleep(1)</span><br></pre></td></tr></table></figure>
-<p>运行python脚本得到flag</p>
+        <h1 id="1-先创建一个新的容器"><a href="#1-先创建一个新的容器" class="headerlink" title="1. 先创建一个新的容器"></a>1. 先创建一个新的容器</h1><p>在创建容器时，会自动获取一个容器id，对于每个容器他的id都是唯一的<img src="http://upload-images.jianshu.io/upload_images/10976729-33ca24294a10a8d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建容器"></p>
+<h1 id="2-进入正在运行的容器"><a href="#2-进入正在运行的容器" class="headerlink" title="2. 进入正在运行的容器"></a>2. 进入正在运行的容器</h1><p><code>sudo docker exec -it id /bin/bash</code><br>id是创建容器时自动获取的，可以通过id对容器进行操作，也可以通过容器的名字操作容器<img src="http://upload-images.jianshu.io/upload_images/10976729-8d092dbe221d4ab5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="进入容器"></p>
+<h1 id="3-Lamp（web应用软件组合）"><a href="#3-Lamp（web应用软件组合）" class="headerlink" title="3. Lamp（web应用软件组合）"></a>3. Lamp（web应用软件组合）</h1><h2 id="apache"><a href="#apache" class="headerlink" title="apache"></a>apache</h2><p>1.安装apache<br><code>apt-get install apache2</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-85202f2631383509.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装apache"><br>2.启动apache<br><code>service apache2 start</code><br><img src="http://upload-images.jianshu.io/upload_images/10976729-df4e34dab4d4992e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="启动apache"><br>3.测试apache<br><img src="http://upload-images.jianshu.io/upload_images/10976729-8ac7325e3462bff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="apache"></p>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>安装mysql<br><code>apt-get install mysql-server mysql-client</code><br>mysql-server是服务，mysql-client通过模块操作数据库<img src="http://upload-images.jianshu.io/upload_images/10976729-ca0f9251c6608530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装mysql"></p>
+<h2 id="PHP（一种脚本语言）"><a href="#PHP（一种脚本语言）" class="headerlink" title="PHP（一种脚本语言）"></a>PHP（一种脚本语言）</h2><p>1.安装PHP和一些包<br><code>apt-get install php7.2</code><br>因为Ubuntu是自带PHP的相关文件的，建议安装的时候看一下自带的php的相关文件的版本，然后直接安装那个版本比较方便，然后我用的Ubuntu是18.04，php是7.2<br><img src="http://upload-images.jianshu.io/upload_images/10976729-097aceeeb3a987b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装php"><br>2.测试php<br>在/var/www/html这个目录下我写了一个phpinfo();的1.php文件来测试php是否正常，然后重新启动一下apache，然后通过浏览器访问了一下1.php<br><img src="http://upload-images.jianshu.io/upload_images/10976729-6e46b5050fbb6888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="测试php"><br>3.访问1.php页面正常显示<br><img src="http://upload-images.jianshu.io/upload_images/10976729-dda9f03f90c20400.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="访问1.php"></p>
+<h1 id="4-下载dvwa并部署到apache"><a href="#4-下载dvwa并部署到apache" class="headerlink" title="4. 下载dvwa并部署到apache"></a>4. 下载dvwa并部署到apache</h1><p>用到的一些命令需要安装，如wget，unzip<br><img src="http://upload-images.jianshu.io/upload_images/10976729-8927af5a9ffd9904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="从GitHub上下载dvwa"><br>1.下载的dvwa<br><img src="http://upload-images.jianshu.io/upload_images/10976729-a5e464942fd7b316.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dvwa的压缩文件"><br>2.部署到apache<br><img src="http://upload-images.jianshu.io/upload_images/10976729-b94b4d9b7df4627c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="部署dvwa"><br>3.通过浏览器访问<br><img src="http://upload-images.jianshu.io/upload_images/10976729-91c523ec3807422a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置前"></p>
+<h1 id="5-配置完成后dvwa"><a href="#5-配置完成后dvwa" class="headerlink" title="5.配置完成后dvwa"></a>5.配置完成后dvwa</h1><p><img src="http://upload-images.jianshu.io/upload_images/10976729-23b49dfcddc2b486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dvwa"></p>
 
       
     </div>
@@ -387,13 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
-          
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-            <a href="/tags/实验吧/" rel="tag"># 实验吧</a>
-          
-            <a href="/tags/misc/" rel="tag"># misc</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -406,14 +415,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/27/docker/" rel="next" title="docker">
+                <i class="fa fa-chevron-left"></i> docker
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/27/docker/" rel="prev" title="docker">
-                docker <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/01/ARP攻击（Arpspoof）/" rel="prev" title="ARP攻击（Arpspoof）">
+                ARP攻击（Arpspoof） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -550,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><span class="nav-number">1.</span> <span class="nav-text">MD5之守株待兔，你需要找到和系统锁匹配的钥匙</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-先创建一个新的容器"><span class="nav-number">1.</span> <span class="nav-text">1. 先创建一个新的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-进入正在运行的容器"><span class="nav-number">2.</span> <span class="nav-text">2. 进入正在运行的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Lamp（web应用软件组合）"><span class="nav-number">3.</span> <span class="nav-text">3. Lamp（web应用软件组合）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#apache"><span class="nav-number">3.1.</span> <span class="nav-text">apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">3.2.</span> <span class="nav-text">MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP（一种脚本语言）"><span class="nav-number">3.3.</span> <span class="nav-text">PHP（一种脚本语言）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-下载dvwa并部署到apache"><span class="nav-number">4.</span> <span class="nav-text">4. 下载dvwa并部署到apache</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-配置完成后dvwa"><span class="nav-number">5.</span> <span class="nav-text">5.配置完成后dvwa</span></a></li></ol></div>
             
 
           </div>
