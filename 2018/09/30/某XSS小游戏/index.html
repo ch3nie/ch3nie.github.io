@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接$alert(jumo)$发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们">
+<meta name="description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们需要">
 <meta name="keywords" content="XXS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="某XSS小游戏">
 <meta property="og:url" content="http://yoursite.com/2018/09/30/某XSS小游戏/index.html">
 <meta property="og:site_name" content="很皮的小锯沫">
-<meta property="og:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接$alert(jumo)$发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们">
+<meta property="og:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们需要">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.5am3.com/img/181008/jK9c0KAg0L.png">
 <meta property="og:image" content="http://img.5am3.com/img/181008/2k1H5KhGGA.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://img.5am3.com/img/181008/j9g5IhjJjg.png">
 <meta property="og:image" content="http://img.5am3.com/img/181008/bGHe9JlCdJ.png">
 <meta property="og:image" content="http://img.5am3.com/img/181008/6K9hJlg18m.png">
-<meta property="og:updated_time" content="2018-10-08T11:59:03.712Z">
+<meta property="og:updated_time" content="2018-10-08T12:08:48.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="某XSS小游戏">
-<meta name="twitter:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接$alert(jumo)$发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们">
+<meta name="twitter:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们需要">
 <meta name="twitter:image" content="http://img.5am3.com/img/181008/jK9c0KAg0L.png">
 
 
@@ -352,21 +352,21 @@
 <hr>
 <p>1.第一关没有过滤，直接弹就好</p>
 <p><img src="http://img.5am3.com/img/181008/jK9c0KAg0L.png" alt="mark"></p>
-<p>2.第二关直接$alert(jumo)$发现不能弹，我们看一下源码</p>
+<p>2.第二关直接alert(jumo)发现不能弹，我们看一下源码</p>
 <p><img src="http://img.5am3.com/img/181008/2k1H5KhGGA.png" alt="mark"></p>
 <p>我们需要把”双引号闭合掉 payload如下</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name=keyword  value=<span class="string">""</span>&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;""&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="http://img.5am3.com/img/181008/G640L5FEKD.png" alt="mark"></p>
 <p>3.第三关我们需要闭合单引号，而且&lt;&gt;被过滤掉了</p>
 <p><img src="http://img.5am3.com/img/181008/j9g5IhjJjg.png" alt="mark"></p>
-<p>当&lt;&gt;被过滤时我们可以利用时间来进行弹框$’ onclick=alert(1) ‘$</p>
+<p>当&lt;&gt;被过滤时我们可以利用时间来进行弹框<u>‘ onclick=alert(1) ‘</u></p>
 <p><img src="http://img.5am3.com/img/181008/bGHe9JlCdJ.png" alt="mark"></p>
 <p>4.第四关和第三关差不多，&lt;&gt;被过滤掉了，只不过需要闭合的单引号’变成了双引号”</p>
 <p><img src="http://img.5am3.com/img/181008/6K9hJlg18m.png" alt="mark"></p>
-<p>5.我们用第四关的payload试一下发现on事件被过滤掉了,<script>标签也被过滤掉了</p>
+<p>5.我们用第四关的payload试一下发现on事件被过滤掉了,<strong><script></strong>标签也被过滤掉了</p>
 <p><img src="http://img.5am3.com/img/181008/01IdDJaJfL.png" alt="mark"></p>
 <p><img src="http://img.5am3.com/img/181008/Al8J30hldA.png" alt="mark"></p>
-<p>然后测试发现标签<a> 没有被过滤掉，我们可以尝试构造链接来触发弹框payload如下</p>
+<p>然后测试发现标签<strong><a></strong> 没有被过滤掉，我们可以尝试构造链接来触发弹框payload如下</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;a href="</span>javascript:alert(<span class="string">'1'</span>)<span class="string">"&gt;111&lt;/a&gt;&lt;"</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://img.5am3.com/img/181008/LG6JF6IAdJ.png" alt="mark"></p>
 <p>6.第六关我们可以看到标签<a>的href属性被过滤掉了</p>
@@ -411,7 +411,7 @@
 </ol>
 <hr>
 <p>只写到了第十关，还没有写完，和朋友约好的饭，现在要出门了，后面的有时间在写</p>
-</script></p>
+</script></strong></p>
       
     </div>
     
