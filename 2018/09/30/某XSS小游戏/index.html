@@ -93,7 +93,22 @@
 <meta property="og:image" content="http://img.5am3.com/img/181008/j9g5IhjJjg.png">
 <meta property="og:image" content="http://img.5am3.com/img/181008/bGHe9JlCdJ.png">
 <meta property="og:image" content="http://img.5am3.com/img/181008/6K9hJlg18m.png">
-<meta property="og:updated_time" content="2018-10-08T12:08:48.529Z">
+<meta property="og:image" content="http://img.5am3.com/img/181008/01IdDJaJfL.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/Al8J30hldA.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/LG6JF6IAdJ.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/E3cALK41fE.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/dd7IK40cEF.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/cdIfCmacEk.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/kkfGd9lc68.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/BjL6DEh123.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/C23EfakKfl.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/jBAAE43JdA.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/mDJF24aiHJ.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/lDbij7Kjfl.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/cL9HeBlDf3.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/dI403bAL8c.png">
+<meta property="og:image" content="http://img.5am3.com/img/181008/I9jL18JD0I.png">
+<meta property="og:updated_time" content="2018-10-08T12:31:09.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="某XSS小游戏">
 <meta name="twitter:description" content="昨天不知道干嘛，就玩了一下xss，然后就早晨醒来就整理了部分  1.第一关没有过滤，直接弹就好  2.第二关直接alert(jumo)发现不能弹，我们看一下源码  我们需要把”双引号闭合掉 payload如下 1&amp;lt;input name=keyword  value=&quot;&quot;&amp;gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;&quot;&quot;&amp;gt;  3.第三关我们需要">
@@ -363,13 +378,15 @@
 <p><img src="http://img.5am3.com/img/181008/bGHe9JlCdJ.png" alt="mark"></p>
 <p>4.第四关和第三关差不多，&lt;&gt;被过滤掉了，只不过需要闭合的单引号’变成了双引号”</p>
 <p><img src="http://img.5am3.com/img/181008/6K9hJlg18m.png" alt="mark"></p>
-<p>5.我们用第四关的payload试一下发现on事件被过滤掉了,<strong><script></strong>标签也被过滤掉了</p>
+<p>5.我们用第四关的payload试一下发现on事件被过滤掉了,script标签也被过滤掉了</p>
+<!--<script>标签也被过滤掉了，在文中写<script>上传之后无法显示，就写注释吧QAQ（下面的注释都是因为这个原因）-->
 <p><img src="http://img.5am3.com/img/181008/01IdDJaJfL.png" alt="mark"></p>
 <p><img src="http://img.5am3.com/img/181008/Al8J30hldA.png" alt="mark"></p>
-<p>然后测试发现标签<strong><a></strong> 没有被过滤掉，我们可以尝试构造链接来触发弹框payload如下</p>
+<!--然后测试发现<a>标签没有被过滤掉-->
+<p>我们可以尝试构造链接来触发弹框payload如下</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;a href="</span>javascript:alert(<span class="string">'1'</span>)<span class="string">"&gt;111&lt;/a&gt;&lt;"</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://img.5am3.com/img/181008/LG6JF6IAdJ.png" alt="mark"></p>
-<p>6.第六关我们可以看到标签<a>的href属性被过滤掉了</p>
+<p>6.第六关我们可以看到href属性被过滤掉了</p>
 <p><img src="http://img.5am3.com/img/181008/E3cALK41fE.png" alt="mark"></p>
 <p>我们尝试一下大小写绕过发现可以，payload如下</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;sCript&gt;alert("</span><span class="number">1</span><span class="string">")&lt;/sCript&gt;&lt;"</span></span><br></pre></td></tr></table></figure>
@@ -377,12 +394,13 @@
 <p>用href属性的payload如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;a hRef=&quot;javascript:alert(&apos;1&apos;)&quot;&gt;111&lt;/a&gt;&lt;&quot;</span><br></pre></td></tr></table></figure>
 <p><img src="http://img.5am3.com/img/181008/cdIfCmacEk.png" alt="mark"></p>
-<p>7.输入$alert(“1”)$发现script过滤掉了，用href和on事件发现也过滤掉了，然后测试用大小写绕过未果</p>
+<p>7.输入alert(“1”)发现script过滤掉了，用href和on事件发现也过滤掉了，然后测试用大小写绕过未果</p>
 <p><img src="http://img.5am3.com/img/181008/kkfGd9lc68.png" alt="mark"></p>
 <p><img src="http://img.5am3.com/img/181008/BjL6DEh123.png" alt="mark"></p>
 <p>用双写发现可以绕过</p>
 <p><img src="http://img.5am3.com/img/181008/C23EfakKfl.png" alt="mark"></p>
-<p>8.查看源码发现用了标签<a>的href属性，我们测试构造这样的payload</p>
+<p>8.我们测试构造这样的payload</p>
+<!--查看源码发现用了标签<a>的href属性-->
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:alert('1')"</span>&gt;<span class="number">111</span>&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://img.5am3.com/img/181008/jBAAE43JdA.png" alt="mark"></p>
 <p>我们发现javascript被替换为javascr_ipt，且大小写绕过不行（大写被转换为小写了），我们用编码来绕过，javascript:alert(1)经过Unicode编码得到payload</p>
@@ -411,7 +429,7 @@
 </ol>
 <hr>
 <p>只写到了第十关，还没有写完，和朋友约好的饭，现在要出门了，后面的有时间在写</p>
-</script></strong></p>
+
       
     </div>
     
