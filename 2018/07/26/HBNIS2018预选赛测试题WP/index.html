@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="（真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ） 0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到fla">
+<meta name="description" content="真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○  0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到flag">
 <meta name="keywords" content="Writeup,ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HBNIS2018预选赛测试题WP">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/HBNIS2018预选赛测试题WP/index.html">
 <meta property="og:site_name" content="锯沫的小窝">
-<meta property="og:description" content="（真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ） 0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到fla">
+<meta property="og:description" content="真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○  0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到flag">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-fb4870925b985e0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-300f6d9e5e8b8089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-184f991cc8b35e5a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/10976729-3c2316ed7c3d5aa4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-16T15:02:11.077Z">
+<meta property="og:updated_time" content="2018-10-21T05:55:13.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HBNIS2018预选赛测试题WP">
-<meta name="twitter:description" content="（真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○ ） 0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到fla">
+<meta name="twitter:description" content="真是第一次遇见这种对萌新我如此友好的ctf题○(￣︶￣)○  0x01：流量分析一题述：附件为某网络设备的访问信息，请分析文件，获取flag 是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag  0x02：图片隐写一题述：惹不起惹不起  载下来的是一个无法打开的gif图片，扔Hex里面看一下，缺少文件头，补全  然后打开gif图片，拿到flag">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -372,7 +372,7 @@
       
 
       
-        <p>（真是第一次遇见这种对萌新我如此友好的ctf题○(<em>￣︶￣</em>)○ ）</p>
+        <p>真是第一次遇见这种对萌新我如此友好的ctf题○(<em>￣︶￣</em>)○ </p>
 <h2 id="0x01：流量分析一"><a href="#0x01：流量分析一" class="headerlink" title="0x01：流量分析一"></a>0x01：流量分析一</h2><p>题述：附件为某网络设备的访问信息，请分析文件，获取flag</p>
 <p>是个流量包，用wireshark过滤一下tcp流量，发现telnet远程登陆追踪TCP流量拿到flag</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/10976729-5ef7268912535a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mark"></p>
@@ -533,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -544,7 +544,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -555,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -619,8 +619,9 @@
 </div>
 -->
 <div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
 </span>
 </div>
 
