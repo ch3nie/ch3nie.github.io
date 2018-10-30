@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://img.5am3.com/img/181030/cffj0Ed05B.png">
 <meta property="og:image" content="http://img.5am3.com/img/181030/d89kiBDH28.png">
 <meta property="og:image" content="http://img.5am3.com/img/181030/k6F1BGjdh3.png">
-<meta property="og:updated_time" content="2018-10-30T12:11:35.950Z">
+<meta property="og:updated_time" content="2018-10-30T12:15:17.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次Ad Hoc模式无线局域网搭建">
 <meta name="twitter:description" content="无线ad hoc网络是由一组自主的无线节点或终端网络相互合作而形成的，独立于固定的基础设施的并且采用分布式管理的网络，是一种自创造、自组织和自管理的网络。当我们在没有无线访问接入点的情况下，我们怎么实现通信呢？我们可以通过无线网卡直接组建无线局域网，实现移动网络中智能终端设备之间直接互连的方法。 搭建过程实验设备：这里我用的是两台win10系统的笔记本电脑(征用舍友一台)。两台PC机的IP规划如下">
@@ -374,7 +374,7 @@
 </tr>
 </tbody>
 </table>
-<p>最初做实验是按照实验指导做的，配置PC1的无线网卡IP地址为$192.168.178.1$，子网掩码为$255.255.255.0$，用同样的方法配置PC2的无线网卡地址。</p>
+<p>最初做实验是按照实验指导做的，配置PC1的无线网卡IP地址为192.168.178.1，子网掩码为255.255.255.0，用同样的方法配置PC2的无线网卡地址。</p>
 <p><img src="http://img.5am3.com/img/181030/ef8lC8FEkC.png" alt="mark"></p>
 <p>在这里我把PC1作为无线网络中提供服务的虚拟AP，所以当配置好PC机的无线网卡IP地址之后，我们需要配置PC1无线网卡的SSID(服务集标识)，然后让无线网络中的其他计算机(PC2)直接通过这台虚拟AP，进行点对点连接，实现网络互联与共享。</p>
 <p>按照实验指导应该去“管理无线网络”面板创建临时网络，然后配置无线SSID信息，但这是在win7上操作的实验指导，而win10上并没有图形化创建临时网络。既然没有图形化创建，那我们就命令行创建临时网络。</p>
@@ -386,7 +386,7 @@
 <p><img src="http://img.5am3.com/img/181030/hcAK6imBki.png" alt="mark"></p>
 <p>然后我重复上面的命令创建临时网络，设置ad-hoc网络的名字为220ad，密码为1234567890，然后启动承载。</p>
 <p><img src="http://img.5am3.com/img/181030/hckhd1a6jg.png" alt="mark"></p>
-<p>之前我们改过wlan的无线网卡的ip配置，然后尝试在图形化界面创建临时网络。但是win10只能用命令行创建临时网络，而且我们需要进入”更改适配器选项“对220ad进行配置，所以我们先把之前配置过wlan重新改回自动获得ip地址，然后再更改220ad的无线网卡的ip配置为$192.168.178.1/24$。当两个适配器都处于活动状态时，只能有其中一个适配器使用此地址。</p>
+<p>之前我们改过wlan的无线网卡的ip配置，然后尝试在图形化界面创建临时网络。但是win10只能用命令行创建临时网络，而且我们需要进入”更改适配器选项“对220ad进行配置，所以我们先把之前配置过wlan重新改回自动获得ip地址，然后再更改220ad的无线网卡的ip配置为192.168.178.1/24​。当两个适配器都处于活动状态时，只能有其中一个适配器使用此地址。</p>
 <p><img src="http://img.5am3.com/img/181030/cffj0Ed05B.png" alt="mark"></p>
 <p>当配置好这些的时候，我们就可以用PC2来连接220ad了</p>
 <p><img src="http://img.5am3.com/img/181030/d89kiBDH28.png" alt="mark"></p>
