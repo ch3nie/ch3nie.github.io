@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://img.5am3.com/img/181030/cffj0Ed05B.png">
 <meta property="og:image" content="http://img.5am3.com/img/181030/d89kiBDH28.png">
 <meta property="og:image" content="http://img.5am3.com/img/181030/k6F1BGjdh3.png">
-<meta property="og:updated_time" content="2018-10-30T12:15:17.760Z">
+<meta property="og:updated_time" content="2018-11-01T03:04:04.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次Ad Hoc模式无线局域网搭建">
 <meta name="twitter:description" content="无线ad hoc网络是由一组自主的无线节点或终端网络相互合作而形成的，独立于固定的基础设施的并且采用分布式管理的网络，是一种自创造、自组织和自管理的网络。当我们在没有无线访问接入点的情况下，我们怎么实现通信呢？我们可以通过无线网卡直接组建无线局域网，实现移动网络中智能终端设备之间直接互连的方法。 搭建过程实验设备：这里我用的是两台win10系统的笔记本电脑(征用舍友一台)。两台PC机的IP规划如下">
@@ -374,10 +374,10 @@
 </tr>
 </tbody>
 </table>
-<p>最初做实验是按照实验指导做的，配置PC1的无线网卡IP地址为192.168.178.1，子网掩码为255.255.255.0，用同样的方法配置PC2的无线网卡地址。</p>
+<p>首先，我们配置PC1的无线网卡IP地址为192.168.178.1，子网掩码为255.255.255.0，用同样的方法配置PC2的无线网卡地址。</p>
 <p><img src="http://img.5am3.com/img/181030/ef8lC8FEkC.png" alt="mark"></p>
 <p>在这里我把PC1作为无线网络中提供服务的虚拟AP，所以当配置好PC机的无线网卡IP地址之后，我们需要配置PC1无线网卡的SSID(服务集标识)，然后让无线网络中的其他计算机(PC2)直接通过这台虚拟AP，进行点对点连接，实现网络互联与共享。</p>
-<p>按照实验指导应该去“管理无线网络”面板创建临时网络，然后配置无线SSID信息，但这是在win7上操作的实验指导，而win10上并没有图形化创建临时网络。既然没有图形化创建，那我们就命令行创建临时网络。</p>
+<p>如果是win7的操作系统应该去“管理无线网络”面板创建临时网络，然后配置无线SSID信息，但这是在win10上组建，而win10上并没有图形化创建临时网络。既然没有图形化创建，那我们就命令行创建临时网络。</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#创建临时网络（用管理员权限运行以下命令）</span><br><span class="line">netsh wlan <span class="built_in">set</span> hostednetwork <span class="built_in">mode</span>=allow ssid=adhocname key=password</span><br><span class="line"></span><br><span class="line">netsh wlan <span class="built_in">start</span> hostednetwork</span><br></pre></td></tr></table></figure>
 <p><img src="http://img.5am3.com/img/181030/f5HIEA90gc.png" alt="mark"></p>
 <p>不过在用PC1创建的时候发现无法启动承载网络（如上图），这个问题和网卡本身有关系，我们可以检查一下网卡驱动支持，<strong>支持的承载网络：否</strong>，只有支持的承载网络为<strong>是</strong>我们才可以用它做虚拟AP提供服务。我们可以去网上更新无线网卡驱动解决这个问题。</p>
