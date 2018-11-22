@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://img.5am3.com/img/20181118/3w03pcagtTKw.png">
 <meta property="og:image" content="http://img.5am3.com/img/20181118/pXcQUXKvBoFJ.png">
 <meta property="og:image" content="http://img.5am3.com/img/20181118/qGqq1K9kxyTT.png">
-<meta property="og:updated_time" content="2018-11-20T05:09:49.889Z">
+<meta property="og:updated_time" content="2018-11-22T05:12:04.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEBTUCTF2018-WEB-WP">
 <meta name="twitter:description" content="HEBTUCTFweb1-qiandao打开题目链接就直接有flag 1234567hi，欢迎来到河北师范大学信息安全挑战赛本题，将告诉你如何正确提交答案。本题的答案为：flag&amp;#123;welcome_to_HEBTU&amp;#125;请将以上答案提交至参赛平台，即视为答对本题。 web2-qiandao21题述：签到爽不爽？开不开心，拿分数拿的happy不happy。 http://47.94.1">
@@ -374,7 +374,7 @@
 <p>打开题目链接之后如下</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">/*please add HEBTU&#123;&#125; when you found the secret string*/</span> </span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>); </span><br><span class="line">    error_reporting(<span class="number">0</span>); </span><br><span class="line">    <span class="keyword">echo</span> preg_replace(<span class="string">"/123(.+?)123/ies"</span>, <span class="string">'text("\\1")'</span>, $_POST[<span class="string">'h'</span>]);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">text</span><span class="params">($str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'123'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>看到这里我们我们可以知道他考的是 preg_replace /e模式下的代码执行问题，可以参考下面的一个文章</p>
-<p>[<a href="https://www.jb51.net/article/38714.htm][(https://www.jb51.net/article/38714.htm)]" target="_blank" rel="noopener">https://www.jb51.net/article/38714.htm][(https://www.jb51.net/article/38714.htm)]</a></p>
+<p><a href="https://www.jb51.net/article/38714.htm" target="_blank" rel="noopener">慎用preg_replace危险的/e修饰符</a></p>
 <p>然后这个题post过去<strong>h=123{${phpinfo()}}123</strong>可以成功读取phpinfo界面，现在我们命令执行列目录然后读文件拿到flag，好吧，这个题直接列目录出来的就flag</p>
 <p><img src="http://img.5am3.com/img/20181117/f1l8EhOCXdHp.png" alt="mark"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HEBTU&#123;pr3g_repl@ce_Fun!&#125;</span><br></pre></td></tr></table></figure>
