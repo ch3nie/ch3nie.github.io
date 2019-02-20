@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Writeup,ctf," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Week-2  webeasy_php12描述 代码审计♂第二弹URL http://118.24.25.25:9999/easyphp/index.html 访问连接发现什么都没有，然后在robots.txt下找到一个路径，访问后是源码 12345678&amp;lt;?php    error_reporting(0);    $img = $_GET[&apos;img&apos;];    if(!isset($im">
+<meta name="keywords" content="Writeup,ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HGAME2019-Week 2">
+<meta property="og:url" content="http://yoursite.com/2019/02/09/HGAME2019-Week-2/index.html">
+<meta property="og:site_name" content="锯沫的小窝">
+<meta property="og:description" content="Week-2  webeasy_php12描述 代码审计♂第二弹URL http://118.24.25.25:9999/easyphp/index.html 访问连接发现什么都没有，然后在robots.txt下找到一个路径，访问后是源码 12345678&amp;lt;?php    error_reporting(0);    $img = $_GET[&apos;img&apos;];    if(!isset($im">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/e4765163f3c7641fc1422b6824673e80/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/9de6b3dc766cb1f9175bfd4076c532af/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/c1f8a64b1d808cff555928ec9455aa96/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/c0ded8df6f069e542ffc3c1d22c3ca88/0">
+<meta property="og:updated_time" content="2019-02-20T09:13:36.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HGAME2019-Week 2">
+<meta name="twitter:description" content="Week-2  webeasy_php12描述 代码审计♂第二弹URL http://118.24.25.25:9999/easyphp/index.html 访问连接发现什么都没有，然后在robots.txt下找到一个路径，访问后是源码 12345678&amp;lt;?php    error_reporting(0);    $img = $_GET[&apos;img&apos;];    if(!isset($im">
+<meta name="twitter:image" content="https://qqadapt.qpic.cn/txdocpic/0/e4765163f3c7641fc1422b6824673e80/0">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/09/HGAME2019-Week-2/"/>
+
+
+
+
+
+  <title>HGAME2019-Week 2 | 锯沫的小窝</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://ch3nie.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">锯沫的小窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/09/HGAME2019-Week-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="句末">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="锯沫的小窝">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HGAME2019-Week 2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-09T20:31:16+08:00">
+                2019-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hgame/" itemprop="url" rel="index">
+                    <span itemprop="name">hgame</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Week-2-web"><a href="#Week-2-web" class="headerlink" title="Week-2  web"></a>Week-2  web</h1><h2 id="easy-php"><a href="#easy-php" class="headerlink" title="easy_php"></a>easy_php</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">描述 代码审计♂第二弹</span><br><span class="line">URL http://118.24.25.25:9999/easyphp/index.html</span><br></pre></td></tr></table></figure>
+<p>访问连接发现什么都没有，然后在robots.txt下找到一个路径，访问后是源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    error_reporting(<span class="number">0</span>);</span><br><span class="line">    $img = $_GET[<span class="string">'img'</span>];</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">isset</span>($img))</span><br><span class="line">        $img = <span class="string">'1'</span>;</span><br><span class="line">    $img = str_replace(<span class="string">'../'</span>, <span class="string">''</span>, $img);</span><br><span class="line">    <span class="keyword">include_once</span>($img.<span class="string">".php"</span>);</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br></pre></td></tr></table></figure>
+<p>函数str_replace()把参数img中的<code>../</code>替换为空，且只替换了一次，我们可以用<code>.../...//</code>来绕过。传过来的参数作为文件名，包含固定后缀<code>.php</code>的文件，利用php伪协议读取base64加密后的flag。</p>
+<p><code>?img=php://filter/read=convert.base64-encode/resource=.../...//flag</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/e4765163f3c7641fc1422b6824673e80/0" alt="img"></p>
+<p>然后base64解密，拿到flag<code>hgame{You_4re_So_g0od}</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/9de6b3dc766cb1f9175bfd4076c532af/0" alt="img"></p>
+<h2 id="php-trick"><a href="#php-trick" class="headerlink" title="php trick"></a>php trick</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">描述 some php tricks</span><br><span class="line">URL http://118.24.3.214:3001</span><br></pre></td></tr></table></figure>
+<p>访问链接后源码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//admin.php</span></span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">$str1 = (string)@$_GET[<span class="string">'str1'</span>];</span><br><span class="line">$str2 = (string)@$_GET[<span class="string">'str2'</span>];</span><br><span class="line">$str3 = @$_GET[<span class="string">'str3'</span>];</span><br><span class="line">$str4 = @$_GET[<span class="string">'str4'</span>];</span><br><span class="line">$str5 = @$_GET[<span class="string">'H_game'</span>];</span><br><span class="line">$url = @$_GET[<span class="string">'url'</span>];</span><br><span class="line"><span class="keyword">if</span>( $str1 == $str2 )&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 1 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>( md5($str1) != md5($str2) )&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 2 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>( $str3 == $str4 )&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 3 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ( md5($str3) !== md5($str4))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 4 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (strpos($_SERVER[<span class="string">'QUERY_STRING'</span>], <span class="string">"H_game"</span>) !==<span class="keyword">false</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 5 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(is_numeric($str5))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 6 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ($str5&lt;<span class="number">9999999999</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 7 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ((string)$str5&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 8 fial'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (parse_url($url, PHP_URL_HOST) !== <span class="string">"www.baidu.com"</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 9 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (parse_url($url,PHP_URL_SCHEME) !== <span class="string">"http"</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 10 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch,CURLOPT_URL,$url);</span><br><span class="line">$output = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"><span class="keyword">if</span>($output === <span class="keyword">FALSE</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 11 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析源代码，共传过去6个参数。参数str1和str2为字符串，在满足两个字符串不同的同时他们的MD5值要相同。由于PHP弱类型，在比较哈希字符串时利用<code>!=</code>或<code>==</code>时，每一个以<code>0E</code>开头的哈希值，PHP会认为他们相同，都是0。<code>str1=aabg7XSs</code> <code>str2=aabC9RqS</code>这样我们就绕过step 1和2。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( $str1 == $str2 )&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 1 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>( md5($str1) != md5($str2) )&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 2 fail'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数str3和str4没有要求为字符串，两个参数不同但是MD5要相同，与str1和str2不同的时str3和str4在比较哈希值时不存在弱类型比较，这里是<code>!==</code>。这里我们可以传数组<code>str3[]=0</code> <code>str4[]=1</code>绕过，原因是在判断两个数组时两个数组确实是不同的，但是md5()函数是不能处理数组的,md5(数组)会返回null，这样两个的md5就相同了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( $str3 == $str4 )&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 3 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ( md5($str3) !== md5($str4))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 4 fail'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第五个获取的参数是<code>H_game</code>，但是这里却要求参数名不能有<code>H_game</code>，str5不能是数字且要求str5的值大于等于9999999999，而且str5强制类型转换为字符串后要小于等于0。这里我们可以用<code>+</code>或<code>.</code>来绕过，php自身在解析请求时<code>+</code>和<code>.</code>会被解析成<code>_</code>，所以<code>H+game</code>即<code>H_game</code>，绕过step 5。不能是数字，而且要大于9999999999我们可以用数组来绕过，数组永远比数字大，<code>H+game[]=1</code>绕过。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (strpos($_SERVER[<span class="string">'QUERY_STRING'</span>], <span class="string">"H_game"</span>) !==<span class="keyword">false</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 5 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(is_numeric($str5))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 6 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ($str5&lt;<span class="number">9999999999</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 7 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ((string)$str5&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 8 fial'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第六个参数url，要求parse_url()解析url主机为<code>www.baidu.com</code>，协议是<code>http</code>，即URL中最后一个@符号后面的为host。然后curl打开一个网页。curl解析的hos是第一个@符合后面的。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (parse_url($url, PHP_URL_HOST) !== <span class="string">"www.baidu.com"</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 9 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (parse_url($url,PHP_URL_SCHEME) !== <span class="string">"http"</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 10 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch,CURLOPT_URL,$url);</span><br><span class="line">$output = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"><span class="keyword">if</span>($output === <span class="keyword">FALSE</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'step 11 fail'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>源码的注释中有<code>admin.php</code>，尝试payload为<code>?str1=aabg7XSs&amp;str2=aabC9RqS&amp;str3[]=0&amp;str4[]=1&amp;H+game[]=1&amp;url=http://@127.0.0.1:80@www.baidu.com/admin.php</code>得到admin.php的代码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//flag.php</span></span><br><span class="line"><span class="keyword">if</span>($_SERVER[<span class="string">'REMOTE_ADDR'</span>] != <span class="string">'127.0.0.1'</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'only localhost can see it'</span>);</span><br><span class="line">&#125;</span><br><span class="line">$filename = $_GET[<span class="string">'filename'</span>]??<span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (file_exists($filename)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"sorry,you can't see it"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> file_get_contents($filename);</span><br><span class="line">&#125;</span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>admin.php的文件需要我们传过去一个filename参数，file_exists()函数会检查文件是否存在，如果存在则返回sorry,you can’t see it不让查看，否则file_get_contents() 函数把整个文件读入一个字符串中。如果我们<code>?filename=flag.php</code>会不能查看，但是我们可以<code>?filename=./[anything]/../flag.php</code>，这样文件存在，但函数file_exists()不显示它，就可以file_get_contents() 函数把flag.php文件读入一个字符串中。最终payload为<code>?str1=aabg7XSs&amp;str2=aabC9RqS&amp;str3[]=0&amp;str4[]=1&amp;H+game[]=1&amp;url=http://@127.0.0.1:80@www.baidu.com/admin.php?filename=./a/../flag.php</code>，查看源码拿到flag<code>hgame{ThEr4_Ar4_s0m4_Php_Tr1cks}</code>。</p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/c1f8a64b1d808cff555928ec9455aa96/0" alt="img"></p>
+<p>也可以用php伪协议读取flag.php，payload为<code></code>?str1=aabg7XSs&amp;str2=aabC9RqS&amp;str3[]=0&amp;str4[]=1&amp;H+game[]=1&amp;url=http:<a href="mailto://@127.0.0.1" target="_blank" rel="noopener">//@127.0.0.1</a>:<a href="mailto:80@www.baidu.com" target="_blank" rel="noopener">80@www.baidu.com</a>/admin.php?filename=php://filter/read=convert.base64-encode/resource=flag.php`读取base64加密后的flag.php，然后再解密拿到flag。</p>
+<h2 id="PHP-Is-The-Best-Language"><a href="#PHP-Is-The-Best-Language" class="headerlink" title="PHP Is The Best Language"></a>PHP Is The Best Language</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">描述 var_dump了解一下</span><br><span class="line">URL http://118.25.89.91:8888/flag.php</span><br></pre></td></tr></table></figure>
+<p>源码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="string">'secret.php'</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">#echo $flag; </span></span><br><span class="line"><span class="comment">#echo $secret; </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>($_POST[<span class="string">'gate'</span>]) || <span class="keyword">empty</span>($_POST[<span class="string">'key'</span>])) &#123; </span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>); </span><br><span class="line">    <span class="keyword">exit</span>; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'door'</span>]))&#123; </span><br><span class="line">    $secret = hash_hmac(<span class="string">'sha256'</span>, $_POST[<span class="string">'door'</span>], $secret); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">$gate = hash_hmac(<span class="string">'sha256'</span>, $_POST[<span class="string">'key'</span>], $secret); </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($gate !== $_POST[<span class="string">'gate'</span>]) &#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Hacker GetOut!!"</span>; </span><br><span class="line">    <span class="keyword">exit</span>; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ((md5($_POST[<span class="string">'key'</span>])+<span class="number">1</span>) == (md5(md5($_POST[<span class="string">'key'</span>])))+<span class="number">1</span>) &#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Wow!!!"</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;/br&gt;"</span>; </span><br><span class="line">    <span class="keyword">echo</span> $flag; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">else</span> &#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Hacker GetOut!!"</span>; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>分析源代码，empty()函数检查变量是否为空，只要gate和key有一个为空则退出，要求gate与key必须不为空。如果door存在，获取的door作为要进行哈希运算的消息，<code>$secret</code>为密钥，这里我们不知道secret的值。加密之后的secret作为密钥去加密传入的key，得到key加密后的<code>$gate</code>。这里加密得到的<code>$gate</code>与我们传人的<code>gate</code>比较，要求传入的<code>gate</code>和加密得到的<code>$gate</code>的值相等。</p>
+<p>这里我们让secret生成为固定值。hash_hmac()函数的data参数不能为数组，如果hash_hmac函数参数错误，则会返回false，这样我们传进去door为数组，那么$secret就为固定值了。</p>
+<p>我们再看key需要符合这样的要求，<code>(md5($_POST[&#39;key&#39;])+1) == (md5(md5($_POST[&#39;key&#39;])))+1</code>我们可以爆破得到key。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span> ($key = <span class="number">1</span> ;$key&lt;<span class="number">1000000</span>;$key++)&#123;</span><br><span class="line">	<span class="keyword">if</span> ((md5($key)+<span class="number">1</span>) == (md5(md5($key)))+<span class="number">1</span>) &#123;</span><br><span class="line">	    <span class="keyword">echo</span> $key;</span><br><span class="line">		$gate = hash_hmac(<span class="string">'sha256'</span>, $key, <span class="keyword">false</span>);</span><br><span class="line">		var_dump($gate);</span><br><span class="line">		<span class="keyword">break</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>得到key为12，gate为4217722a8aee69d5ed50f3e5ed1cceb1feb79784baaaa6bbf53515ce0eb4daaf。</p>
+<p>最终payload为<code>gate=4217722a8aee69d5ed50f3e5ed1cceb1feb79784baaaa6bbf53515ce0eb4daaf&amp;key=12&amp;door[]=</code>最后拿到flag为<code>hgame{Php_MayBe_Not_Safe}</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/c0ded8df6f069e542ffc3c1d22c3ca88/0" alt="img"></p>
+<p>也可直接找双MD5碰撞，即0e开头的MD5值其md5结果也是0e开头。<a href="https://www.k2zone.cn/?p=2019" target="_blank" rel="noopener">CTF中if (md5(md5($_GET[‘a’])) == md5($_GET[‘b’])) 的绕过</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/01/HGAME2019-week-1/" rel="next" title="HGAME2019-Week 1">
+                <i class="fa fa-chevron-left"></i> HGAME2019-Week 1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.png"
+                alt="句末" />
+            
+              <p class="site-author-name" itemprop="name">句末</p>
+              <p class="site-description motion-element" itemprop="description">会划水和摸鱼的皮皮怪</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-2-web"><span class="nav-number">1.</span> <span class="nav-text">Week-2  web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#easy-php"><span class="nav-number">1.1.</span> <span class="nav-text">easy_php</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-trick"><span class="nav-number">1.2.</span> <span class="nav-text">php trick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-Is-The-Best-Language"><span class="nav-number">1.3.</span> <span class="nav-text">PHP Is The Best Language</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">句末</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+
+
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
