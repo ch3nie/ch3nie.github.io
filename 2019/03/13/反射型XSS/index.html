@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="web安全技术课程," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="反射型XSS老师让写实验报告，就把实验报告贴一份过来吧。 实验目的 理解反射型XSS的原理 学习反射型XSS的实现过程 学习如何防御XSS  实验原理跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。XSS分为反射型XSS，存储型XSS和DOM型XSS。反射型XXS是一种非持">
+<meta name="keywords" content="web安全技术课程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反射型XSS">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/反射型XSS/index.html">
+<meta property="og:site_name" content="奔跑在路上">
+<meta property="og:description" content="反射型XSS老师让写实验报告，就把实验报告贴一份过来吧。 实验目的 理解反射型XSS的原理 学习反射型XSS的实现过程 学习如何防御XSS  实验原理跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。XSS分为反射型XSS，存储型XSS和DOM型XSS。反射型XXS是一种非持">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/e4b5439052029a3ed55d3da791b68ac6/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/ffd47f46e0550777536bb0ef4b82c707/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/a42e9ab5063b15ba7203982ac352e3d3/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/88242607be35c83b5c0ae1124677d88a/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/db5a8ed21c996033cbbf6c57941d5b7a/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/e6a716da8564bd1713f84024a2d7a45b/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/d1397a9229ef65f7b51f1d41eddc3da2/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/022580722b8d0c60efc3ee8726979550/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/eb3193464baecbd75baf3906f043444b/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/f0c0b67b0b5a35e107cf9faf3fb27355/0">
+<meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/eab46a59e332b38aaf1be404c49078f0/0">
+<meta property="og:updated_time" content="2019-03-21T14:34:31.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反射型XSS">
+<meta name="twitter:description" content="反射型XSS老师让写实验报告，就把实验报告贴一份过来吧。 实验目的 理解反射型XSS的原理 学习反射型XSS的实现过程 学习如何防御XSS  实验原理跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。XSS分为反射型XSS，存储型XSS和DOM型XSS。反射型XXS是一种非持">
+<meta name="twitter:image" content="https://qqadapt.qpic.cn/txdocpic/0/e4b5439052029a3ed55d3da791b68ac6/0">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/反射型XSS/"/>
+
+
+
+
+
+  <title>反射型XSS | 奔跑在路上</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://ch3nie.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">奔跑在路上</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/反射型XSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ch3nie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/huacheng.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奔跑在路上">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">反射型XSS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-13T20:36:26+08:00">
+                2019-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学校/" itemprop="url" rel="index">
+                    <span itemprop="name">学校</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h1><p>老师让写实验报告，就把实验报告贴一份过来吧。</p>
+<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><ol>
+<li>理解反射型XSS的原理</li>
+<li>学习反射型XSS的实现过程</li>
+<li>学习如何防御XSS</li>
+</ol>
+<h2 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h2><p>跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。XSS分为反射型XSS，存储型XSS和DOM型XSS。反射型XXS是一种非持久性的攻击，它指的是恶意攻击者往Web页面里插入恶意代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意攻击用户的目的。这里插入的恶意代码并没有保存在目标网站，需要引诱用户点击一个链接到目标网站的恶意链接来实施攻击。</p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/e4b5439052029a3ed55d3da791b68ac6/0" alt="img"></p>
+<p><strong>XSS攻击分类:</strong></p>
+<p>XSS漏洞一般有两种类型攻击。</p>
+<p>a)一类是来自内部的攻击，主要指的是利用WEB程序自身的漏洞，提交特殊的字符串，从而使得跨站页面直接存在于被攻击站点上，这个字符串被称为跨站语句。这一类攻击所利用的漏洞非常类似于SQL Injection漏洞，都是WEB程序没有对用户输入作充分的检查和过滤。</p>
+<p>b)另一类则是来来自外部的攻击，主要指的自己构造XSS跨站漏洞网页或者寻找非目标机以外的有跨站漏洞的网页。如当我们要渗透一个站点，我们自己构造一个跨站网页放在自己的服务器上，然后通过结合其它技术，如社会工程学等，欺骗目标服务器的管理员打开。这一类攻击的威胁相对较低。</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p><strong>Example 1</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">echo</span> $_GET[<span class="string">"name"</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>主要代码如上。这里通过GET方式传过去name参数，并且对传过去的参数没有做任何过滤，我们的输入会在页面进行显示。现在我们输入恶意代码<code>&lt;script&gt;alert(&#39;chenie&#39;)&lt;/script&gt;</code>XSS弹出弹框。<br><img src="https://qqadapt.qpic.cn/txdocpic/0/ffd47f46e0550777536bb0ef4b82c707/0" alt="img"><br><strong>Example 2</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	$name = $_GET[<span class="string">"name"</span>];</span><br><span class="line">	$name = preg_replace(<span class="string">"/&lt;script&gt;/"</span>, <span class="string">""</span>, $name);</span><br><span class="line">	$name = preg_replace(<span class="string">"/&lt;\/script&gt;/"</span>, <span class="string">""</span>, $name);</span><br><span class="line">	<span class="keyword">echo</span> $_GET[<span class="string">"name"</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里加入了一些过滤，<code>preg_replace()</code>函数如果检测到<code>&lt;script&gt;</code>和<code>&lt;/script&gt;</code>就会把其替换为空格(区分大小写，只替换小写的)。<br>但这里并没有迭代替换，所以这里可以双写绕过也可以大小写绕过。<br>即payload<code>&lt;scr&lt;script&gt;ipt&gt;alert(&#39;chenie&#39;)&lt;/s&lt;/script&gt;cript&gt;</code>或<code>&lt;scRipt&gt;alert(&#39;chenie&#39;)&lt;/scRipt&gt;</code>都可以绕过过滤进行XSS。<br><img src="https://qqadapt.qpic.cn/txdocpic/0/a42e9ab5063b15ba7203982ac352e3d3/0" alt="img"></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/88242607be35c83b5c0ae1124677d88a/0" alt="img"></p>
+<p><strong>Example 3</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	$name = $_GET[<span class="string">"name"</span>];</span><br><span class="line">	$name = preg_replace(<span class="string">"/&lt;script&gt;/i"</span>, <span class="string">""</span>, $name);</span><br><span class="line">	$name = preg_replace(<span class="string">"/&lt;\/script&gt;/i"</span>, <span class="string">""</span>, $name);</span><br><span class="line">	<span class="keyword">echo</span> $_GET[<span class="string">"name"</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里还是用了<code>preg_replace()</code>函数，只不过这里替换时不区分大小写，所以这里我们不能用大小写绕过了，但我们还是可以用双写绕过的，payload同上<code>&lt;scr&lt;script&gt;ipt&gt;alert(&#39;chenie&#39;)&lt;/scr&lt;/script&gt;ipt&gt;</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/db5a8ed21c996033cbbf6c57941d5b7a/0" alt="img"></p>
+<p><strong>Example 4</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">'/script/i'</span>, $_GET[<span class="string">"name"</span>]))&#123;</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">"error"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $_GET[<span class="string">"name"</span>]; <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面是Example 4的主要代码,这里用了<code>preg_match()</code>函数, 只要在获取的参数中含有script字符串即报错。这里我们可以使用img标签来绕过,img src调用图片失败然后执行后面的动作。payload为<code>&lt;img src=&quot;&quot;onclick=&quot;alert(&#39;chenie&#39;)&quot;&gt;</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/e6a716da8564bd1713f84024a2d7a45b/0" alt="img"></p>
+<p><strong>Example 5</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">'/alert/i'</span>, $_GET[<span class="string">"name"</span>]))&#123;</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">"error"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> $_GET[<span class="string">"name"</span>]; <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>代码Example 5的preg_match()函数查找的字符串变成了alert,也就是我们的payload的中不能出现alert, 这样的情况下我们就可以用编码来绕过了, payload为<code>&lt;script&gt;eval(String.fromCharCode(97,108,101,114,116,40,39,99,104,101,110,105,101,39))&lt;/script&gt;</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/d1397a9229ef65f7b51f1d41eddc3da2/0" alt="img"></p>
+<p><strong>Example 6</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var $a=&quot;&lt;?php echo $_GET[&quot;name&quot;];?&gt;&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>Example 6的主要代码, 直接在js环境中输出php变量。可以通过构造js脚本使标签闭合然后加入新标签,payload为<code>&lt;/script&gt;&lt;script&gt;alert(&#39;chenie&#39;)&lt;/script&gt;</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/022580722b8d0c60efc3ee8726979550/0" alt="img"></p>
+<p><strong>Example 7</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var $a=&quot;&lt;?php echo htmlentities($_GET[&quot;name&quot;]);?&gt;&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>主要代码如上，代码在js环境中输出通过html编码的php变量，htmlentities没有过滤单引号，我们使用单引号绕过，尝试构造语句如下：<code>&#39;;alert(&#39;chenie&#39;);&#39;</code>。<img src="https://qqadapt.qpic.cn/txdocpic/0/eb3193464baecbd75baf3906f043444b/0" alt="img"></p>
+<p><strong>Example 8</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if (isset($_POST[&quot;name&quot;]))&#123;</span><br><span class="line">	echo &quot;HELLO&quot;.htmlentities($_GET[&quot;name&quot;]);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line">&lt;form action=&quot;&lt;?php echo $_SERVER[&apos;PHP_SELF&apos;]; ?&gt;&quot;&gt; method=&quot;POST&quot;&gt;</span><br><span class="line">	Your name:&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; name=&quot;submit&quot; /&gt;</span><br><span class="line">&lt;/form&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>第八关，这里有一个输入用户名的地方，当测试提交一个地址的时候源码会显示出来一个链接，链接就是输入的链接，关键代码如上，payload为<code>http://192.168.1.3:8080/xss3/xss/example8.php/[/url]&quot;&gt;&lt;script&gt;alert(&#39;chenie&#39;)&lt;/script&gt;&quot;&lt;
+&quot;</code></p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/f0c0b67b0b5a35e107cf9faf3fb27355/0" alt="img"></p>
+<p><strong>Example 9</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	document.write(location.hash.substring(1));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>代码如上，XSS直接在页面输出锚点id，构建一个带xss的锚点即可，payload为<code>http://192.168.1.3:8080/xss3/xss/example9.php#alert(‘chenie’)&lt;/script)&gt;</code>。刷新网页后，即可弹窗。</p>
+<p><img src="https://qqadapt.qpic.cn/txdocpic/0/eab46a59e332b38aaf1be404c49078f0/0" alt="img"></p>
+<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><p><strong>XSS防御</strong></p>
+<ol>
+<li>preg_repalce()执行一个正则表达式的搜索和替换</li>
+<li>preg_match()执行匹配正则表达式</li>
+<li>htmlspecialchars()将特殊字符转换为 HTML 实体</li>
+<li>strip_tags() 从字符串中去除 HTML 和 PHP 标记</li>
+<li>js环境输出php变量</li>
+</ol>
+<p>总之就是对用户的输入进行检查和对用户的输出进行检查。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web安全技术课程/" rel="tag"># web安全技术课程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/09/HGAME2019-Week-2/" rel="next" title="HGAME2019-Week 2">
+                <i class="fa fa-chevron-left"></i> HGAME2019-Week 2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/huacheng.jpg"
+                alt="ch3nie" />
+            
+              <p class="site-author-name" itemprop="name">ch3nie</p>
+              <p class="site-description motion-element" itemprop="description">一只学Web安全的小萌新</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#反射型XSS"><span class="nav-number">1.</span> <span class="nav-text">反射型XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验目的"><span class="nav-number">1.1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验原理"><span class="nav-number">1.2.</span> <span class="nav-text">实验原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验步骤"><span class="nav-number">1.3.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验总结"><span class="nav-number">1.4.</span> <span class="nav-text">实验总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ch3nie</span>
+
+  
+</div>
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+
+
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
